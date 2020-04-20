@@ -1,0 +1,152 @@
+
+<html>
+    <head>
+        <meta charset='utf-8'/>
+        <title>Títol de la pàgina</title>
+        <link href='https://fonts.googleapis.com/css?family=Open+Sans&display=swap' rel='stylesheet'>
+        <link rel='stylesheet' href='https://fonts.googleapis.com/icon?family=Material+Icons'>
+        <link rel='stylesheet' href='https://code.getmdl.io/1.3.0/material.teal-orange.min.css'>
+        <script defer src='https://code.getmdl.io/1.3.0/material.min.js'></script>
+    </head>
+    <style>
+    body {
+        font-family: 'Open Sans', sans-serif;
+    }
+    .outBox {
+        margin: auto;
+        max-width: 300px;
+    }
+    legend {
+        font-size: 2em;
+        text-align: center;
+        margin: 1em 0;
+    }
+    label {
+        padding-left: 5px;
+    }
+    .opcions {
+        margin: 0 8px;
+    }
+    .subtitol {
+        font-size: 1.25em;
+        font-style: italic;
+        margin: 1em 0;
+    }
+    .boto {
+        text-align: center;
+    }
+    </style>
+    <script>
+    function init () {
+        let sel = null
+        console.log(document.getElementById('firstname').value)
+        console.log(document.getElementById('lastname').value)
+        console.log(document.querySelector('input[name="estudisPrevis"]:checked').value)
+        console.log(document.querySelector('input[name="estudisExtra"]:checked').value)
+        console.log('Superior? ', document.getElementById('estudisFutursSUP').checked)
+        console.log('Universitat? ', document.getElementById('estudisFutursUNI').checked)
+        sel = document.getElementById('personalviatjar')
+        console.log(sel[sel.selectedIndex].value)
+        console.log(document.getElementById('personalcabell').value)
+        console.log(document.getElementById('aficionsID').value)
+    }
+    </script>
+    <body onload='init()'>
+    <div class='outBox'>
+        <br/>Obre les eines de desenvolupament a la pestanya 'console' per veure el resultat.
+        <br/><br/><br/>
+        <form action='/paginaAccio' target='_blank' method='GET'>
+            <legend>Informació personal</legend>
+            <div class='mdl-textfield mdl-js-textfield mdl-textfield--floating-label'>
+                <input class='mdl-textfield__input' type='text' id='firstname' pattern="[^0-9]*">
+                <label class='mdl-textfield__label' for='firstname'>Nom</label>
+                <span class="mdl-textfield__error">El nom només pot contenir lletres</span>
+            </div>
+            <br/>
+            <div class='mdl-textfield mdl-js-textfield mdl-textfield--floating-label'>
+                <input class='mdl-textfield__input' type='text' id='lastname' pattern="[^0-9]*">
+                <label class='mdl-textfield__label' for='lastname'>Primer cognom</label>
+                <span class="mdl-textfield__error">El cognom només pot contenir lletres</span>
+            </div>
+            <br/>
+            <div class='mdl-textfield mdl-js-textfield mdl-textfield--floating-label'>
+                <input class='mdl-textfield__input' type='text' id='mail' pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$">
+                <label class='mdl-textfield__label' for='mail'>Correu electronic</label>
+                <span class="mdl-textfield__error">No és un format de correu vàlid</span>
+            </div>
+            <legend>Estudis</legend>
+            <div class='subtitol'>Estudis previs</div>
+            <div class='opcions'>
+                <label class='mdl-radio mdl-js-radio mdl-js-ripple-effect' for='estudisPrevisESO'>
+                    <input type='radio' id='estudisPrevisESO' name='estudisPrevis' value='eso' class='mdl-radio__button'>
+                    <span class='mdl-radio__label'>ESO</span>
+                </label>
+                <br/>
+                <label class='mdl-radio mdl-js-radio mdl-js-ripple-effect' for='estudisPrevisPFI'>
+                    <input type='radio' id='estudisPrevisPFI' name='estudisPrevis' value='pfi' class='mdl-radio__button' checked>
+                    <span class='mdl-radio__label'>PFI</span>
+                </label>
+                <br/>
+                <label class='mdl-radio mdl-js-radio mdl-js-ripple-effect' for='estudisPrevisMTJ'>
+                    <input type='radio' id='estudisPrevisMTJ' name='estudisPrevis' value='mitja' class='mdl-radio__button'>
+                    <span class='mdl-radio__label'>Grau Mitjà</span>
+                </label>
+            </div>
+            <div class='subtitol'>Estudis extraordinaris</div>
+            <div class='opcions'>
+                <label class='mdl-radio mdl-js-radio mdl-js-ripple-effect' for='estudisExtraMUS'>
+                    <input type='radio' id='estudisExtraMUS' name='estudisExtra' value='pfi' class='mdl-radio__button'>
+                    <span class='mdl-radio__label'>Música</span>
+                </label>
+                <br/>
+                <label class='mdl-radio mdl-js-radio mdl-js-ripple-effect' for='estudisExtraPRG'>
+                    <input type='radio' id='estudisExtraPRG' name='estudisExtra' value='programacio' class='mdl-radio__button' checked>
+                    <span class='mdl-radio__label'>Programació</span>
+                </label>
+            </div>
+            <div class='subtitol'>Estudis futurs</div>
+            <div class='opcions'>
+                <label class='mdl-checkbox mdl-js-checkbox mdl-js-ripple-effect' for='estudisFutursSUP'>
+                    <input type='checkbox' id='estudisFutursSUP' value='sup' class='mdl-checkbox__input'>
+                    <span class='mdl-checkbox__label'>Grau Superior</span>
+                </label>
+                <br/>
+                <label class='mdl-checkbox mdl-js-checkbox mdl-js-ripple-effect' for='estudisFutursUNI'>
+                    <input type='checkbox' id='estudisFutursUNI' value='uni' class='mdl-checkbox__input' checked>
+                    <span class='mdl-checkbox__label'>Universitat</span>
+                </label>
+            </div>
+            <legend>Vida personal</legend>
+            <div class='mdl-textfield mdl-js-textfield mdl-textfield--floating-label'>
+                <select id='personalviatjar' class='mdl-textfield__input' name='viatjar'>
+                    <option value=''></option>
+                    <option value='no'>No</option>
+                    <option value='setmana' selected>Entre setmana</option>
+                    <option value='total'>Total</option>
+                </select>
+                <label class='mdl-textfield__label' for='octane'>Disposició per viatjar</label>
+            </div>
+            <div class='mdl-textfield mdl-js-textfield mdl-textfield--floating-label'>
+                <select id='personalcabell' class='mdl-textfield__input' name='cabell'>
+                    <option value='ros'>Ros</option>
+                    <option value='castany' selected>Castany</option>
+                    <option value='negre'>Negre</option>
+                </select>
+                <label class='mdl-textfield__label' for='octane'>Color del cabell</label>
+            </div>
+            <br/>
+            <div class='mdl-textfield mdl-js-textfield mdl-textfield--floating-label'>
+                <textarea rows='6' class='mdl-textfield__input' type='text' id='aficionsID'>Caminar per la muntanya</textarea>
+                <label class='mdl-textfield__label' for='aficionsID'>
+                    Aficions
+                </label>
+            </div>
+            <br/>
+            <div class='boto'>
+                <button type='submit' class='mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--colored'>Enviar</button>
+            </div>
+        </form>
+    </div>
+    <br/><br/><br/><br/>
+    </body>
+</html>

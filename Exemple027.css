@@ -1,0 +1,29 @@
+body {
+    background-color: lightgrey;
+}
+@media only screen and (max-device-width: 899px) {
+    /* En mòbils el color serà blau */
+    body {
+        background-color: lightskyblue;
+    }
+}
+
+.visibleMobil {
+    display: block;
+}
+@media only screen and (min-device-width: 900px) {
+    /* En desktop els elements amb class 'visibleMobil' no es veuràn */
+    .visibleMobil {
+        display: none;
+    }
+}
+
+.visibleDesktop {
+    display: block;
+}
+@media only screen and (max-device-width: 899px) {
+    /* En mòbils els elements amb class 'visibleDesktop' no es veuràn */
+    .visibleDesktop {
+        display: none;
+    }
+}

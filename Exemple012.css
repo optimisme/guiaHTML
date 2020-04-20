@@ -1,0 +1,19 @@
+div {
+    margin-bottom: 1em;
+}
+#capa {
+    border: 1px solid red;
+}
+.tipus0 {
+    background-color: yellow;
+    color: purple;
+}
+.tipus1 {
+    background-color: orange;
+    color: green !important;
+}
+.tipus2 {
+    background-color: aquamarine;
+    font-style: italic;
+    font-weight: bold;
+}

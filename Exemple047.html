@@ -1,0 +1,37 @@
+<html>
+    <head>
+        <meta charset='utf-8'/>
+        <link href="https://fonts.googleapis.com/css?family=Open+Sans&display=swap" rel="stylesheet">
+        <title>Títol de la pàgina</title>
+    </head>
+    <style>
+    body {
+        font-family: 'Open Sans', sans-serif;
+    }
+    </style>
+    <script>
+    function init () {
+        let a = 2,
+            b = 3,
+            c = 'hola',
+            d = a + b,
+            e = c + a;
+
+        console.log('Originalment el valor de "a" és: ' + a)
+        console.log('Originalment el valor de "b" és: ' + b)
+        console.log('Originalment el valor de "c" és: ' + c)
+        console.log('Originalment el valor de "d" és: ' + d)
+        console.log('Originalment el valor de "e" és: ' + e)
+
+        a--;
+        b++;
+
+        console.log('\n') 
+        console.log('Finalment el valodr de "a" és: ' + a)
+        console.log('Finalment el valodr de "b" és: ' + b)
+    }
+    </script>
+    <body onload='init()'>
+        <br/>Obre les eines de desenvolupament a la pestanya 'console' per veure el resultat.
+    </body>
+</html>

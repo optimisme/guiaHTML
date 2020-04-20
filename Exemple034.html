@@ -1,0 +1,41 @@
+<html>
+    <head>
+        <meta charset='utf-8'/>
+        <title>Primera maqueta</title>
+        <meta name="viewport" content="width=device-width, user-scalable=no">
+        <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i,800,800i&display=swap" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+        <link href='./Exemple034.css' rel='stylesheet'>
+        <script src='./Exemple034.js'></script>
+    </head>
+    <body>
+        <div id='menu' class='desktop'>
+            <div><i class="material-icons">bug_report</i></div>
+            <div><a href=''>Productes</a></div>
+            <div><a href=''>Contactar</a></div>
+            <div><a href=''>Informació</a></div>
+            <div><i class='material-icons' onclick=''>search</i></div>
+        </div>
+        <div id='menuSmall' class='mobile' ontouchend='amagaMenu(event)'>
+            <div id='menuContainer'>
+                <div ontouchend='navega(event, "./productes.html")'>Productes</div>
+                <div ontouchend='navega(event, "./contactar.html")'>Contactar</div>
+                <div ontouchend='navega(event, "./informacio.html")'>Informació</div>
+            </div>
+        </div>
+        <div id='fixedTitle'>
+            <div class='center'>
+                <div class='title'>Producte X</div>
+                <div class='subtitle'>Que mola molt</div>
+                <div class='buybutton'>Comprar</div>
+                <div class='mobile' ontouchend='mostraMenu(event)'><i class='material-icons menubutton'>menu</i></div>
+            </div>
+        </div>
+        <div class='contingutAuto'>
+            <h2>Titol que mola</h2>
+            <h1>Desplega el menú en format mòbil</h1>
+            <img src='Exemple026.jpg' alt='batidora'/>
+            <p>Lorem ipsum dolor sit amet, consectetur adipisici elit, sed eiusmod tempor incidunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquid ex ea commodi consequat. Quis aute iure reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint obcaecat cupiditat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+        </div>
+    </body>
+</html>

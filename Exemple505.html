@@ -1,0 +1,267 @@
+
+<html>
+    <head>
+        <meta charset='utf-8'/>
+        <title>Títol de la pàgina</title>
+        <link href='https://fonts.googleapis.com/css?family=Open+Sans&display=swap' rel='stylesheet'>
+        <link rel='stylesheet' href='https://fonts.googleapis.com/icon?family=Material+Icons'>
+        <link rel='stylesheet' href='https://code.getmdl.io/1.3.0/material.teal-orange.min.css'>
+        <script defer src='https://code.getmdl.io/1.3.0/material.min.js'></script>
+    </head>
+    <style>
+    body {
+        font-family: 'Open Sans', sans-serif;
+        margin: 0;
+        padding: 0;
+    }
+    #exterior {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        height: 100%;
+        width: 100%;
+    }
+    </style>
+    <script>
+    var fpsDataActual = 0,
+        fpsDataAnterior = 0,
+        fpsDiferencia = 0,
+        cnv = null,
+        ctx = null,
+        estat = 'inicial',
+        direccioJugador = 'quiet',
+        direccioPilota = 'amuntdreta'
+        jugadorX = 200,
+        jugadorY = 390,
+        jugadorW = 100,
+        jugadorH = 5,
+        pilotaX = 250,
+        pilotaY = 200,
+        tocs = 0,
+        finalY = 410,
+        velocitatPilota = 1.0,
+        velocitatJugador = 1.0
+
+    function init () {
+        document.body.addEventListener('keydown', teclaApretada)
+        document.body.addEventListener('keyup',   teclaAlliberada)
+        cnv = document.getElementById('cnv'),
+        ctx = cnv.getContext('2d', { alpha: false })
+
+        run()
+    }
+
+    function run () {
+        fpsDataActual = new Date()
+        fpsDiferencia = (fpsDataActual - fpsDataAnterior) / 1000
+        if (fpsDiferencia > 5) fpsDiferencia = 0
+
+        switch(estat) {
+        case 'inicial':
+            mouInicial()
+            dibuixaInicial()
+            break;
+        case 'jugant':
+            mouJugant()
+            dibuixaJugant()
+            break;
+        case 'final':
+            mouFinal()
+            dibuixaFinal()
+            break;
+        }
+  
+        fpsDataAnterior = fpsDataActual
+
+        requestAnimationFrame(run)
+    }
+    function mouInicial () {
+        // En aquest es podria gestionar un menu, aquí no cal gestionar res 
+    }
+    function dibuixaInicial () {
+        let txt = 'Apreta les tecles "dreta" o "esquerra" per començar',
+            ampleText = 0
+
+        ctx.fillStyle = 'white'
+        ctx.fillRect(0, 0, 500, 400)
+
+        ctx.fillStyle = 'black'
+        ctx.font = '20px Arial'
+        ampleText = ctx.measureText(txt).width
+        ctx.fillText(txt, 250 - (ampleText / 2), 200)
+    }
+    function mouJugant () {
+        let limit0 = 10,
+            limit1 = cnv.width - 10,
+            distancia = fpsDiferencia * 250 * velocitatJugador,
+            distanciaPilota = fpsDiferencia * 100 * velocitatPilota
+
+        switch (direccioJugador) {
+        case 'dreta': jugadorX = jugadorX + distancia; break
+        case 'esquerra': jugadorX = jugadorX - distancia; break
+        }
+        if (jugadorX <= limit0) {
+            jugadorX = limit0
+        }
+        if (jugadorX >= (limit1 - jugadorW)) {
+            jugadorX = limit1 - jugadorW
+        }
+
+        // Movem la pilota
+        switch(direccioPilota) {
+            case 'avalldreta':
+                pilotaX = pilotaX + distanciaPilota
+                pilotaY = pilotaY + distanciaPilota 
+                break;
+            case 'avallesquerra':
+                pilotaX = pilotaX - distanciaPilota
+                pilotaY = pilotaY + distanciaPilota 
+                break;
+            case 'amuntdreta':
+                pilotaX = pilotaX + distanciaPilota
+                pilotaY = pilotaY - distanciaPilota
+                break;
+            case 'amuntesquerra':
+                pilotaX = pilotaX - distanciaPilota
+                pilotaY = pilotaY - distanciaPilota
+                break;
+        }
+
+        // Vigilem els rebots amb les parets del camp
+        if (pilotaX < 10) {
+            if (direccioPilota === 'avallesquerra') {
+                direccioPilota = 'avalldreta'
+            }
+            if (direccioPilota === 'amuntesquerra') {
+                direccioPilota = 'amuntdreta'
+            }
+            pilotaX = 10
+        }
+        if (pilotaX > limit1) {
+            if (direccioPilota === 'avalldreta') {
+                direccioPilota = 'avallesquerra'
+            }
+            if (direccioPilota === 'amuntdreta') {
+                direccioPilota = 'amuntesquerra'
+            }
+            pilotaX = limit1
+        }
+        if (pilotaY < 10) {
+            if (direccioPilota === 'amuntesquerra') {
+                direccioPilota = 'avallesquerra'
+            }
+            if (direccioPilota === 'amuntdreta') {
+                direccioPilota = 'avalldreta'
+            }
+            pilotaY = 10
+        }
+
+        // Vigilem els rebots amb el jugador
+        if (pilotaY > jugadorY) {
+            if (pilotaX >= jugadorX && pilotaX <= (jugadorX + jugadorW)) {
+                if (direccioPilota === 'avallesquerra') {
+                    direccioPilota = 'amuntesquerra'
+                }
+                if (direccioPilota === 'avalldreta') {
+                    direccioPilota = 'amuntdreta'
+                } 
+                pilotaY = jugadorY
+                tocs = tocs + 1
+                velocitatPilota = velocitatPilota + 0.25
+                velocitatJugador = velocitatJugador + 0.15
+            } else {
+                velocitatPilota = 1
+                if (pilotaY > 400) {
+                    // Tornem a començar la partida
+                    estat = 'final'
+                }
+            }
+        }
+    }
+    function dibuixaJugant () {
+        // Esborrar el canvas a blanc
+        ctx.clearRect(0, 0, cnv.width, cnv.height)
+
+        // Ajuda a dibuixar linies sense aliasing
+        ctx.save()
+        ctx.translate(0.5,0.5);
+
+        // Dibuixar el taulell de joc
+        ctx.lineWidth = 1
+        ctx.strokeStyle = 'rgb(0, 0, 0)'
+        ctx.beginPath()
+        ctx.moveTo(10, cnv.height - 10)
+        ctx.lineTo(10, 10)
+        ctx.lineTo(cnv.width - 10, +10)
+        ctx.lineTo(cnv.width - 10, cnv.height - 10)
+        ctx.stroke()
+
+        ctx.restore()
+
+        // Dibuixar el jugador
+        ctx.fillStyle = 'rgb(0, 0, 0)'
+        ctx.fillRect(jugadorX, jugadorY, jugadorW, jugadorH)
+
+        // Dibuixar la pilota
+        ctx.beginPath()
+        ctx.arc(pilotaX, pilotaY, 5, 0, 2 * Math.PI)
+        ctx.fill()
+
+        ctx.font = '20px Arial'
+        ctx.fillText(tocs, 20, 35)
+    }
+    function mouFinal () {
+        let distancia = fpsDiferencia * 50
+        if (finalY > -30) {
+            finalY = finalY - distancia
+        } else {
+            estat = 'inicial'
+            pilotaY = 200
+            velocitatPilota = 1
+            velocitatJugador = 1
+            finalY = 410
+            tocs = 0
+        }
+    }
+    function dibuixaFinal () {
+        let txt0 = 'Resultat: ' + tocs + ', ets un',
+            txt1 = 'LOSER',
+            ampleText0 = 0,
+            ampleText1 = 0
+
+        ctx.fillStyle = 'white'
+        ctx.fillRect(0, 0, 500, 400)
+
+        ctx.fillStyle = 'black'
+        ctx.font = '20px Arial'
+        ampleText0 = ctx.measureText(txt0).width
+        ctx.fillText(txt0, 250 - (ampleText0 / 2), finalY)
+
+        ctx.font = '30px Arial'
+        ampleText1 = ctx.measureText(txt1).width
+        ctx.fillText(txt1, 250 - (ampleText1 / 2), finalY + 30) 
+    }
+    function teclaApretada (e) {
+
+        if (estat === 'inicial') {
+            if (e.key === 'ArrowLeft' || e.key === 'ArrowRight') {
+                estat = 'jugant'
+            }
+        }
+
+        switch (e.key) {
+        case 'ArrowLeft':   direccioJugador = 'esquerra'; break
+        case 'ArrowRight':  direccioJugador = 'dreta'; break
+        }
+    }
+    function teclaAlliberada (e) {
+        if (e.key === 'ArrowLeft'  && direccioJugador === 'esquerra') { direccioJugador = 'quiet' }
+        if (e.key === 'ArrowRight' && direccioJugador === 'dreta')    { direccioJugador = 'quiet' }
+    }
+    </script>
+    <body onload='init()'>
+        <div id='exterior'>
+            <canvas id='cnv' width='500' height='400'></canvas>
+        </div>
+    </body>
+</html>

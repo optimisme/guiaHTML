@@ -1,0 +1,45 @@
+<html>
+    <head>
+        <meta charset='utf-8'/>
+        <title>Títol de la pàgina</title>
+    </head>
+    <style>
+    .flex {
+        display: flex;
+    }
+    .elm:first-child {
+        border-top-left-radius: 5px;
+        border-bottom-left-radius: 5px;
+        border: 1px solid black;
+    }
+    .elm {
+        border-right: 1px solid black;
+        border-top: 1px solid black;
+        border-bottom: 1px solid black;
+        position: sticky;
+        top: 0px;
+        min-width: 50px;
+        min-height: 50px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+    .elm:nth-child(3) {
+        background-color: orange;
+    }
+    .elm:last-child {
+        border-top-right-radius: 5px;
+        border-bottom-right-radius: 5px;
+    }
+    </style>
+    <body>
+        <div class='flex'>
+            <div class='elm'>A</div>
+            <div class='elm'>B</div>
+            <div class='elm'>C</div>
+            <div class='elm'>D</div>
+            <div class='elm'>E</div>
+            <div class='elm'>F</div>
+        </div>
+    </body>
+</html>

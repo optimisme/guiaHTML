@@ -1,0 +1,53 @@
+
+<html>
+    <head>
+        <meta charset='utf-8'/>
+        <title>Títol de la pàgina</title>
+    </head>
+    <body>
+        <p>El tag <b>&lt;form&gt;</b> també té paràmetres opcionals.<br/> - <b>action</b>: Defineix la direcció del servidor que recollirà la informació (la pàgina que ens donarà el resultat).<br/> - <b>target</b>: Com en un enllaç tipus &lt;a&gt;, defineix la finestra on es veurà aquest resultat (si no definim target és la mateixa del formulari). <br/> - <b>method</b>: Pot ser GET o POST.</p>
+        <form action='/paginaAccio' target='_blank' method='GET'>
+            <fieldset>
+                    <legend>Informació personal:</legend>
+                    Nom:<br/>
+                    <input type='text' name='firstname' value='Mickey' pattern="[^0-9]*" title="El nom no pot tenir números">
+                    <br/>
+                    Primer Cognom:<br/>
+                    <input type='text' name='lastname' value='Mouse' pattern="[^0-9]*" title="El cognom no pot tenir números">
+                    <br/>
+                    Correu electrònic:<br/>
+                    <input type='text' name='email' value='' pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$" title="No és un format de correu vàlid">
+            </fieldset>
+            <fieldset>
+                    <legend>Estudis:</legend>
+                    Estudis previs:<br/>
+                    <input type='radio' name='estudisPrevis' value='eso' checked>ESO<br/>
+                    <input type='radio' name='estudisPrevis' value='pfi'> PFI<br/>
+                    <input type='radio' name='estudisPrevis' value='mitja'> Grau Mitjà<br/>
+                    Estudis extraordinaris:<br/>
+                    <input type='radio' name='estudisExtra' value='musica' checked>Música<br/>
+                    <input type='radio' name='estudisExtra' value='programacio'>Programació<br/>
+                    Estudis futurs:<br/>
+                    <input type='checkbox' name='estudisFuturs' value='Bike'> Grau Superior<br/>
+                    <input type='checkbox' name='estudisFuturs' value='Car' checked>Universitat<br/>
+            </fieldset>
+            <fieldset>
+                    <legend>Vida personal:</legend>
+                    Disposició per viatjar:<br/>
+                    <select name='viatjar'>
+                        <option value='no'>No</option>
+                        <option value='setmana'>Entre setmana</option>
+                        <option value='total'>Total</option>
+                    </select>
+                    <br/>
+                    Aficions:<br/>
+                    <textarea rows='6' cols='50'>Escriu les teves aficions en aquesta area ...</textarea>
+            </fieldset>
+            <br/>
+            <input type='submit' value='Enviar'>
+            <br/><br/><br/><br/>
+        </form>
+    </body>
+</html>
+
+

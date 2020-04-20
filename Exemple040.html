@@ -1,0 +1,22 @@
+<html>
+    <head>
+        <meta charset='utf-8'/>
+        <link href="https://fonts.googleapis.com/css?family=Open+Sans&display=swap" rel="stylesheet">
+        <title>Títol de la pàgina</title>
+    </head>
+    <style>
+    body {
+        font-family: 'Open Sans', sans-serif;
+    }
+    </style>
+    <script>
+    function init () {
+        // Aquesta funció s'executa quan la pàgina està carregada
+        let refCapa = document.getElementById('capa')
+        refCapa.innerHTML = 'Hola, aquest text l\'ha afegit la funció init() de JavaScript un cop la pàgina s\ha carregat completament.'
+    }
+    </script>
+    <body onload='init()'>
+        <div id='capa'></div>
+    </body>
+</html>

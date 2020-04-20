@@ -1,0 +1,36 @@
+<html>
+    <head>
+        <meta charset='utf-8'/>
+        <title>Exercici</title>
+        <link href='https://fonts.googleapis.com/css?family=Open+Sans&display=swap' rel='stylesheet'>
+        <link rel='stylesheet' href='https://fonts.googleapis.com/icon?family=Material+Icons'>
+    </head>
+    <style>
+    body {
+        font-family: 'Open Sans', sans-serif;
+        margin: 0em;
+        padding: 1em;
+    }
+    </style>
+    <script>
+    function construeix () {
+        let valor = document.getElementById('valor').value,
+            ref = document.getElementById('resultat'),
+            cntX = 0,
+            cntY = 0
+
+        ref.innerHTML = ''
+        for (cntY = 0; cntY <= valor; cntY = cntY + 1) {
+            for (cntX = 0; cntX < cntY; cntX = cntX + 1) {
+                ref.innerHTML = ref.innerHTML + '*'
+            }
+            ref.innerHTML = ref.innerHTML + '<br/>'
+        }
+    }
+    </script>
+    <body>
+    <input type='text' id='valor'/>
+    <button onclick="construeix()">Construeix</button>
+    <div id='resultat'></div>
+    </body>
+</html>

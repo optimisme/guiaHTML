@@ -1,0 +1,84 @@
+<html>
+    <head>
+        <meta charset='utf-8'/>
+        <link href="https://fonts.googleapis.com/css?family=Open+Sans&display=swap" rel="stylesheet">
+        <title>Títol de la pàgina</title>
+    </head>
+    <style>
+    body {
+        font-family: 'Open Sans', sans-serif;
+    }
+    </style>
+    <script>
+    var fons = 'white'
+    function init () {
+        let dia = diasetmana(),
+            col = background()
+
+        console.log('La funció dia de la setmana diu que avui és: ' + dia)
+        console.log('La funció background ha decidit que el color de fons sigui: ' + col)
+        console.log('La funció suma retorna 0 si no té arguments:' + suma())
+        console.log('La funció suma retorna la suma de tots els arguments arguments:' + suma(1, 2, 1, 2))
+    }
+    function diasetmana () {
+        let avui = new Date(),
+            dia = avui.getDay()
+
+        switch (dia) {
+            case 0: return 'Diumenge'
+            case 1: return 'Dilluns'
+            case 2: return 'Dimarts'
+            case 3: return 'Dimecres'
+            case 4: return 'Dijous'
+            case 5: return 'Divendres'
+            case 6: return 'Dissabte'
+        }
+    }
+    function background () {
+        let atzar = getRandomFloat(1, 5),
+            color = 'white'
+
+        switch (atzar) {
+            case 1: color = 'red'; break
+            case 2: color = 'green'; break
+            case 3: color = 'yellow'; break
+            case 4: color = 'lightblue'; break
+            default: color = 'peru';
+        }
+
+        // Enlloc de repetir color, posem blanc
+        if (fons === color) {
+            color = 'white'
+        }
+
+        // Guardem el color que ha tocat, per no repetir
+        fons = color
+
+        // Assignem el color al fons de la pàgina
+        document.body.style.backgroundColor = color
+
+        return color
+    }
+    function getRandomFloat (min, max) {
+        return parseInt(Math.random() * (max - min) + min)
+    }
+
+    function suma (...args) {
+        let cnt = 0,
+            sum = 0
+
+        if (args.length === 0) {
+            return 0
+        } else {
+            for (cnt = 0; cnt < args.length; cnt = cnt + 1) {
+                sum = sum + args[cnt]
+            }
+            return sum
+        }
+    }
+    </script>
+    <body onload='init()'>
+        <br/>Obre les eines de desenvolupament a la pestanya 'console' per veure el resultat.
+        <button onclick='background()'>Canvia el fons</button>
+    </body>
+</html>

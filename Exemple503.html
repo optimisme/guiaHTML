@@ -1,0 +1,122 @@
+
+<html>
+    <head>
+        <meta charset='utf-8'/>
+        <title>Títol de la pàgina</title>
+        <link href='https://fonts.googleapis.com/css?family=Open+Sans&display=swap' rel='stylesheet'>
+        <link rel='stylesheet' href='https://fonts.googleapis.com/icon?family=Material+Icons'>
+        <link rel='stylesheet' href='https://code.getmdl.io/1.3.0/material.teal-orange.min.css'>
+        <script defer src='https://code.getmdl.io/1.3.0/material.min.js'></script>
+    </head>
+    <style>
+    body {
+        font-family: 'Open Sans', sans-serif;
+        margin: 0;
+        padding: 0;
+    }
+    #exterior {
+        background-color: lightgray;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        height: 100%;
+        width: 100%;
+    }
+    #cnv {
+        background-color: white;
+    }
+    </style>
+    <script>
+    var fpsDataActual = 0,
+        fpsDataAnterior = 0,
+        fpsDiferencia = 0,
+        cnv = null,
+        ctx = null,
+        direccioJugador = 'quiet',
+        jugadorX = 0,
+        jugadorY = 0,
+        jugadorW = 100,
+        jugadorH = 25
+
+    function init () {
+        document.body.addEventListener('keydown', teclaApretada)
+        document.body.addEventListener('keyup',   teclaAlliberada)
+        cnv = document.getElementById('cnv'),
+        ctx = cnv.getContext('2d', { alpha: false })
+
+        jugadorX = cnv.width / 2 - jugadorW / 2 // Centrem el jugador horitzontalment al inici
+        jugadorY = cnv.height - jugadorH - 10
+
+        run()
+    }
+
+    function run () {
+
+        fpsDataActual = new Date()
+        fpsDiferencia = (fpsDataActual - fpsDataAnterior) / 1000
+        if (fpsDiferencia > 5) fpsDiferencia = 0
+
+        mou()
+        dibuixa()
+        
+        fpsDataAnterior = fpsDataActual
+
+        requestAnimationFrame(run)
+    }
+    function mou () {
+        let limit0 = 10,
+            limit1 = cnv.width - jugadorW - 10,
+            distancia = fpsDiferencia * 250 // Avançem 100px cada segon
+
+        switch (direccioJugador) {
+        case 'dreta': jugadorX = jugadorX + distancia; break
+        case 'esquerra': jugadorX = jugadorX - distancia; break
+        }
+        if (jugadorX <= limit0) {
+            jugadorX = limit0
+        }
+        if (jugadorX >= limit1) {
+            jugadorX = limit1
+        }
+    }
+    function dibuixa () {
+        // Esborrar el canvas
+        ctx.clearRect(0, 0, cnv.width, cnv.height)
+
+        // Ajuda a dibuixar linies sense aliasing
+        ctx.save()
+        ctx.translate(0.5,0.5);
+
+        // Dibuixar el taulell de joc
+        ctx.lineWidth = 1
+        ctx.strokeStyle = 'rgb(0, 0, 0)'
+        ctx.beginPath()
+        ctx.moveTo(10, cnv.height - 10)
+        ctx.lineTo(10, 10)
+        ctx.lineTo(cnv.width - 10, +10)
+        ctx.lineTo(cnv.width - 10, cnv.height - 10)
+        ctx.stroke()
+
+        ctx.restore()
+
+        // Dibuixar el jugador
+        ctx.fillStyle = 'rgb(0, 0, 0)'
+        ctx.fillRect(jugadorX, jugadorY, jugadorW, jugadorH)
+    }
+    function teclaApretada (e) {
+        switch (e.key) {
+        case 'ArrowLeft':   direccioJugador = 'esquerra'; break
+        case 'ArrowRight':  direccioJugador = 'dreta'; break
+        }
+    }
+    function teclaAlliberada (e) {
+        if (e.key === 'ArrowLeft'  && direccioJugador === 'esquerra') { direccioJugador = 'quiet' }
+        if (e.key === 'ArrowRight' && direccioJugador === 'dreta')    { direccioJugador = 'quiet' }
+    }
+    </script>
+    <body onload='init()'>
+        <div id='exterior'>
+            <canvas id='cnv' width='500' height='400'></canvas>
+        </div>
+    </body>
+</html>

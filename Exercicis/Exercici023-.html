@@ -1,0 +1,32 @@
+<html>
+    <head>
+        <meta charset='utf-8'/>
+        <title>Exercici</title>
+        <link href='https://fonts.googleapis.com/css?family=Open+Sans&display=swap' rel='stylesheet'>
+        <link rel='stylesheet' href='https://fonts.googleapis.com/icon?family=Material+Icons'>
+    </head>
+    <style>
+    body {
+        font-family: 'Open Sans', sans-serif;
+        margin: 0em;
+        padding: 1em;
+    }
+    </style>
+    <script>
+    function transforma () {
+        let refOriginal = document.getElementById('original'),
+            refTransformatM = document.getElementById('transformatM'),
+            refTransformatP = document.getElementById('transformatP'),
+            valor = refOriginal.value
+
+        refTransformatM.value = valor.toUpperCase()
+        refTransformatP.value = valor + valor.split("").reverse().join("")
+    }
+    </script>
+    <body>
+    <input type='text' id='original'/>
+    <input type='text' id='transformatM'/>
+    <input type='text' id='transformatP'/>
+    <button onclick="transforma()">Transforma</button>
+    </body>
+</html>

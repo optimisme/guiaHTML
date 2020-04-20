@@ -1,0 +1,55 @@
+<html>
+    <head>
+        <meta charset='utf-8'/>
+        <link href="https://fonts.googleapis.com/css?family=Open+Sans&display=swap" rel="stylesheet">
+        <title>Títol de la pàgina</title>
+    </head>
+    <style>
+    body {
+        font-family: 'Open Sans', sans-serif;
+    }
+    </style>
+    <script>
+    function init () {
+        let color = 'verd',
+            valor = 5
+            
+        if (color === 'verd') {
+            console.log('color === "verd";    Mostra això perquè el color coincideix amb valor i tipus')
+        }
+
+        if (color !== 'vermell') {
+            console.log('color !== "vermell"; Mostra això perquè el color no coincideix')
+        } else {
+            console.log('                     Només mostra això si el color és "vermell"')
+        }
+
+        if (valor === 5) {
+            console.log('valor === 5;         Mostra això perquè el valor coincideix amb valor i tipus')
+        }
+        
+        if (valor == 5) {
+            console.log('valor == 5;          Mostra això perquè el color coincideix amb valor (no mira el tipus)')
+        }
+
+        if (valor === '5') {
+            console.log('valor === "5";       No mostra això perquè el color coincideix amb valor però no amb tipus')
+        }
+
+        if (valor == '5') {
+            console.log('valor == "5";        Mostra això perquè el color coincideix amb valor (no mira el tipus)')
+        }
+
+        if (color === 'verd' && valor === '5') {
+            console.log('color === "verd" && valor === "5";    No mostra això perquè el valor no coincideix amb tipus')
+        } else if (color === 'vermell' && valor === 5) {
+            console.log('color === "vermell" && valor === 5; No mostra això perquè el color no coincideix')
+        } else {
+            console.log('Mostra això perquè no té cap altra altenativa en les condicions anteriors')
+        }
+    }
+    </script>
+    <body onload='init()'>
+        <br/>Obre les eines de desenvolupament a la pestanya 'console' per veure el resultat.
+    </body>
+</html>

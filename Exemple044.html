@@ -1,0 +1,36 @@
+<html>
+    <head>
+        <meta charset='utf-8'/>
+        <link href="https://fonts.googleapis.com/css?family=Open+Sans&display=swap" rel="stylesheet">
+        <title>Títol de la pàgina</title>
+    </head>
+    <style>
+    body {
+        font-family: 'Open Sans', sans-serif;
+    }
+    </style>
+    <script>
+    function init () {
+        let a = 'text',
+            b = 'x',
+            c = 3,
+            d = 3.45,
+            e = [0, 1, 2],
+            f = { a: 1, b: 2 },
+            g = function () {},
+            h = () => {}
+    
+        console.log('La variable "a" conté: "' + a + '" i és del tipus "' + typeof a + '"')
+        console.log('La variable "b" conté: "' + b + '" i és del tipus "' + typeof b + '"')
+        console.log('La variable "c" conté: "' + c + '" i és del tipus "' + typeof c + '"')
+        console.log('La variable "d" conté: "' + d + '" i és del tipus "' + typeof d + '"')
+        console.log('La variable "e" conté: "' + e + '" i és del tipus "' + typeof e + '"')
+        console.log('La variable "f" conté: "' + JSON.stringify(f) + '" i és del tipus "' + typeof f + '"')
+        console.log('La variable "g" conté: "' + g + '" i és del tipus "' + typeof g + '"')
+        console.log('La variable "h" conté: "' + h + '" i és del tipus "' + typeof h + '"')
+    }
+    </script>
+    <body onload='init()'>
+        <br/>Obre les eines de desenvolupament a la pestanya 'console' per veure el resultat.
+    </body>
+</html>

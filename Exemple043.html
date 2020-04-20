@@ -1,0 +1,34 @@
+<html>
+    <head>
+        <meta charset='utf-8'/>
+        <link href="https://fonts.googleapis.com/css?family=Open+Sans&display=swap" rel="stylesheet">
+        <title>Títol de la pàgina</title>
+    </head>
+    <style>
+    body {
+        font-family: 'Open Sans', sans-serif;
+    }
+    </style>
+    <script>
+    function init () {
+        let a = 'hola',
+            b = 'adeu',
+            tmp = null;
+    
+        console.log('Originalment la variable a conté: ' + a)
+        console.log('Originalment la variable b conté: ' + b)
+
+        tmp = a
+        a = b
+        b = tmp
+
+        console.log('\nEl què fa aquesta funció és intercanviar el valor de les variables a i b, fent servir una variable temporal')
+        console.log('\n')
+        console.log('Finalment la variable a conté: ' + a)
+        console.log('Finalment la variable b conté: ' + b)
+    }
+    </script>
+    <body onload='init()'>
+        <br/>Obre les eines de desenvolupament a la pestanya 'console' per veure el resultat.
+    </body>
+</html>

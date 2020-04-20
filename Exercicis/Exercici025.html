@@ -1,0 +1,60 @@
+<html>
+    <head>
+        <meta charset='utf-8'/>
+        <title>Exercici</title>
+        <link href='https://fonts.googleapis.com/css?family=Open+Sans&display=swap' rel='stylesheet'>
+        <link rel='stylesheet' href='https://fonts.googleapis.com/icon?family=Material+Icons'>
+    </head>
+    <style>
+    body {
+        font-family: 'Open Sans', sans-serif;
+        margin: 0em;
+        padding: 1em;
+    }
+    #quadre {
+        background-color: green;
+        position: absolute;
+        top: 100px;
+        left: 100px;
+        height: 50px;
+        width: 50px;
+        transition: width 2s ease-in;
+    }
+    </style>
+    <script>
+    function expandeix () {
+        let ref = document.getElementById('quadre')
+        ref.style.width = '150px'
+    }
+    function mostra () {
+        let ref = document.getElementById('quadre'),
+            estil = window.getComputedStyle(ref)
+
+        if (estil.display === 'block') {
+            ref.style.display = 'none'
+        } else {
+            ref.style.display = 'block'
+        }
+    }
+    function salta (posicio) {
+        let ref = document.getElementById('quadre'),
+            arr = [100, 150, 175]
+
+        if (posicio === -1) {
+            ref.style.top = Math.floor(Math.random() * 200) + 100  
+
+        } else {
+            ref.style.top = arr[posicio] + 'px'
+        }
+    }
+    </script>
+    <body>
+    <div id='quadre'></div>
+    <button onclick="expandeix()">Expandeix</button>
+    <button onclick='mostra()'>Mostra/Amaga</button>
+    <button onclick='salta(0)'>0</button>
+    <button onclick='salta(1)'>1</button>
+    <button onclick='salta(2)'>2</button>
+    <button onclick='salta(-1)'>Atzar</button>
+    </body>
+</html>

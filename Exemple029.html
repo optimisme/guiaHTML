@@ -1,0 +1,50 @@
+<html>
+    <head>
+        <meta charset='utf-8'/>
+        <title>Títol de la pàgina</title>
+        <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i,800,800i&display=swap" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    </head>
+    <style>
+    body {
+        font-family: 'Open Sans', sans-serif;
+        margin: 10;
+        padding: 0;
+    }
+    .anm {
+        width: 100px;
+        height: 100px;
+        background-color: red;
+        position: relative;
+        animation-name: keys;
+        animation-duration: 4s;
+        animation-iteration-count: 2;
+        animation-direction: alternate;  
+    }
+    @keyframes keys {
+        0%   {background-color:red; left:0px; top:0px;}
+        25%  {background-color:yellow; left:200px; top:0px;}
+        50%  {background-color:blue; left:200px; top:200px;}
+        75%  {background-color:green; left:0px; top:200px;}
+        100% {background-color:red; left:0px; top:0px;}
+    }
+    </style>
+    <script>
+    function init () {
+        let divAnm = document.getElementById('divAnm')
+        divAnm.addEventListener("animationstart", () => { console.log('Animació comnença') }, false)
+        divAnm.addEventListener("animationend", () => { console.log('Animació acaba') }, false)
+        divAnm.addEventListener("animationiteration", () => { console.log('Animació itera') }, false)
+    }
+    function activa () {
+        let divAnm = document.getElementById('divAnm')
+        divAnm.style.animation = 'none';
+        divAnm.offsetHeight; /* trigger reflow */
+        divAnm.style.animation = null; 
+    }
+    </script>
+    <body onload='init()'>
+        <button onclick='activa()'>Activa</button>
+        <div id='divAnm' class='anm'></div>
+    </body>
+</html>

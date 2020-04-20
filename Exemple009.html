@@ -1,0 +1,105 @@
+<html>
+    <head>
+        <meta charset='utf-8'/>
+        <title>Títol de la pàgina</title>
+    </head>
+    <style>
+    table, th, td {
+        border: 1px solid black;
+    }
+    </style>
+    <body>
+        <h2>Taula amb 'border'</h2>
+        <table>
+            <tr>
+                <th>Més</th>
+                <th>Estalvi</th>
+                <th>Temperatura</th>
+            </tr>
+            <tr>
+                <td>Gener</td>
+                <td>20€</td>
+                <td>15º</td>
+            </tr>
+            <tr>
+                <td>Febrer</td>
+                <td>35€</td>
+                <td>12º</td>
+            </tr>
+            <tr>
+                <td>Març</td>
+                <td>20€</td>
+                <td>18º</td>
+            </tr>
+        </table>
+        <hr/>
+        <h2>Taula amb 'rowspan', per ocupar 2 files</h2>
+        <table>
+            <tr>
+                <th>Més</th>
+                <th>Estalvi</th>
+                <th>Temperatura</th>
+            </tr>
+            <tr>
+                <td>Gener</td>
+                <td>20€</td>
+                <td>15º</td>
+            </tr>
+            <tr>
+                <td>Febrer</td>
+                <td>35€</td>
+                <td rowspan='2'>12º</td>
+            </tr>
+            <tr>
+                <td>Març</td>
+                <td>20€</td>
+            </tr>
+        </table>
+        <hr/>
+        <h2>Taula amb 'colspan', per ocupar 2 columnes</h2>
+        <table>
+            <tr>
+                <th>Més</th>
+                <th>Estalvi</th>
+                <th>Temperatura</th>
+            </tr>
+            <tr>
+                <td>Gener</td>
+                <td>20€</td>
+                <td>15º</td>
+            </tr>
+            <tr>
+                <td>Febrer</td>
+                <td>35€</td>
+                <td>12º</td>
+            </tr>
+            <tr>
+                <td colspan='2'>Març</td>
+                <td>18º</td>
+            </tr>
+        </table>
+        <h2>Taula amb alineacions (actualment fora de l'estàndard, no s'ha de fer servir)</h2>
+        <table>
+            <tr>
+                <th>Més</th>
+                <th>Estalvi</th>
+                <th>Temperatura</th>
+            </tr>
+            <tr>
+                <td>Gener</td>
+                <td>20€</td>
+                <td align='right'>15º</td>
+            </tr>
+            <tr>
+                <td>Febrer</td>
+                <td>35€</td>
+                <td align='right'>12º</td>
+            </tr>
+            <tr>
+                <td>Març</td>
+                <td>20€</td>
+                <td align='right'>18º</td>
+            </tr>
+        </table>
+    </body>
+</html>

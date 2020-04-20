@@ -1,0 +1,58 @@
+<html>
+    <head>
+        <meta charset='utf-8'/>
+        <link href="https://fonts.googleapis.com/css?family=Open+Sans&display=swap" rel="stylesheet">
+        <title>Títol de la pàgina</title>
+    </head>
+    <style>
+    body {
+        font-family: 'Open Sans', sans-serif;
+    }
+    </style>
+    <script>
+    function init () {
+        let cnt = 0,
+            txt = '',
+            arr = ['a', 'b', 'c'],
+            ultim = 0
+
+        for (cnt = 0; cnt < 5; cnt = cnt + 1) {
+            if (cnt === 0) {
+                txt = cnt
+            } else {
+                txt = txt + ', ' + cnt
+            }
+        }
+        console.log ('El valor de txt és: ' + txt)
+
+        txt = ''
+        for (cnt = 5; cnt >= 0; cnt = cnt - 1) {
+            if (cnt === 5) {
+                txt = cnt
+            } else {
+                txt = txt + ', ' + cnt
+            }
+        }
+        console.log ('El valor de txt és: ' + txt)
+
+        txt = arr[0]
+        for (cnt = 1; cnt < arr.length; cnt++) {
+            txt = txt + ', ' + arr[cnt]
+        }
+        console.log ('El valor de txt és: ' + txt)
+
+        ultim = arr.length - 1
+        for (cnt = ultim; cnt >= 0; cnt--) {
+            if (cnt === ultim) {
+                txt = arr[cnt]
+            } else {
+                txt = txt + ', ' + arr[cnt]
+            }
+        }
+        console.log ('El valor de txt és: ' + txt)
+    }
+    </script>
+    <body onload='init()'>
+        <br/>Obre les eines de desenvolupament a la pestanya 'console' per veure el resultat.
+    </body>
+</html>

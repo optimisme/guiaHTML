@@ -1,0 +1,107 @@
+<html>
+    <head>
+        <meta charset='utf-8'/>
+        <title>Exercici</title>
+        <link href='https://fonts.googleapis.com/css?family=Open+Sans&display=swap' rel='stylesheet'>
+        <link rel='stylesheet' href='https://fonts.googleapis.com/icon?family=Material+Icons'>
+        <link rel='stylesheet' href='https://code.getmdl.io/1.3.0/material.teal-orange.min.css'>
+        <script defer src='https://code.getmdl.io/1.3.0/material.min.js'></script>
+    </head>
+    <style>
+    body {
+        font-family: 'Open Sans', sans-serif;
+        margin: 0em;
+        padding: 1em;
+        width: calc(100% - 2em);
+    }
+    .etiqueta {
+        color: rgb(0,150,136);
+        font-size: 12px;
+    }
+    </style>
+    <script>
+    function init() {
+        let data = '{ "name": "Toni", "phone": "923", "email": "romero@gmail.com", "ecivil": "solter", "slaboral": [ "treballa", "estudia" ], "gandulitat": "molt" }',
+            obj = JSON.parse(data)
+
+        document.getElementById('firstname').value = obj.name
+        document.getElementById('phone').value = obj.phone
+        document.getElementById('mail').value = obj.email
+        if (obj.ecivil === 'solter') {
+            document.getElementById('ecivilSolter').checked = true
+        }
+        if (obj.ecivil === 'casat') {
+            document.getElementById('ecivilCasat').checked = true
+        }
+        if (obj.slaboral.indexOf('treballa') !== -1) {
+            document.getElementById('slaboralTreballa').checked = true
+        }
+        if (obj.slaboral.indexOf('estudia') !== -1) {
+            document.getElementById('slaboralEstudia').checked = true
+        }
+        switch (obj.gandulitat) {
+        case 'poc':     document.getElementsByName('gandulitat')[0].selectedIndex = 0; break
+        case 'gandul':  document.getElementsByName('gandulitat')[0].selectedIndex = 1; break
+        case 'molt':    document.getElementsByName('gandulitat')[0].selectedIndex = 2; break
+        }
+    }
+    </script>
+    <body onload="init()">
+        <h1>Formulari</h1>
+        <form>
+            <div class='mdl-textfield mdl-js-textfield mdl-textfield--floating-label'>
+                <input class='mdl-textfield__input' type='text' id='firstname' pattern="[^0-9]*">
+                <label class='mdl-textfield__label' for='firstname'>Nom</label>
+                <span class="mdl-textfield__error">El nom només pot contenir lletres</span>
+            </div>
+            <br/>
+            <div class='mdl-textfield mdl-js-textfield mdl-textfield--floating-label'>
+                <input class='mdl-textfield__input' type='text' id='phone' pattern="[0-9]*">
+                <label class='mdl-textfield__label' for='phone'>Telèfon</label>
+                <span class="mdl-textfield__error">El telèfon ha de ser números</span>
+            </div>
+            <br/>
+            <div class='mdl-textfield mdl-js-textfield mdl-textfield--floating-label'>
+                <input class='mdl-textfield__input' type='text' id='mail' pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$">
+                <label class='mdl-textfield__label' for='mail'>Correu electronic</label>
+                <span class="mdl-textfield__error">No és un format de correu vàlid</span>
+            </div>
+            <br/>
+            <div class='etiqueta'>Estat civil</div>
+            <div class='opcions'>
+                <label class='mdl-radio mdl-js-radio mdl-js-ripple-effect' for='ecivilSolter'>
+                    <input type='radio' id='ecivilSolter' name='ecivil' value='solter' class='mdl-radio__button'>
+                    <span class='mdl-radio__label'>Solter</span>
+                </label>
+                <br/>
+                <label class='mdl-radio mdl-js-radio mdl-js-ripple-effect' for='ecivilCasat'>
+                    <input type='radio' id='ecivilCasat' name='ecivil' value='casat' class='mdl-radio__button'>
+                    <span class='mdl-radio__label'>Casat</span>
+                </label>
+            </div>
+            <br/>
+            <div class='etiqueta'>Situació laboral</div>
+            <div class='opcions'>
+                <label class='mdl-checkbox mdl-js-checkbox mdl-js-ripple-effect' for='slaboralTreballa'>
+                    <input type='checkbox' id='slaboralTreballa' value='treballa' class='mdl-checkbox__input'>
+                    <span class='mdl-checkbox__label'>Treballa</span>
+                </label>
+                <br/>
+                <label class='mdl-checkbox mdl-js-checkbox mdl-js-ripple-effect' for='slaboralEstudia'>
+                    <input type='checkbox' id='slaboralEstudia' value='estudia' class='mdl-checkbox__input'>
+                    <span class='mdl-checkbox__label'>Estudia</span>
+                </label>
+            </div>
+            <br/>
+            <div class='mdl-textfield mdl-js-textfield mdl-textfield--floating-label'>
+                <select class='mdl-textfield__input' name='gandulitat'>
+                    <option value='poc'>Poc gandul</option>
+                    <option value='normal'>Gandul</option>
+                    <option value='molt'>Molt gandul</option>
+                </select>
+                <label class='mdl-textfield__label' for='octane'>Nivell de gandulitat</label>
+            </div>
+            <br/><br/><br/>
+            <button type='submit' class='mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--colored'>Enviar</button>
+    </body>
+</html>

@@ -1,0 +1,49 @@
+<html>
+    <head>
+        <meta charset='utf-8'/>
+        <link href="https://fonts.googleapis.com/css?family=Open+Sans&display=swap" rel="stylesheet">
+        <title>Títol de la pàgina</title>
+    </head>
+    <style>
+    body {
+        font-family: 'Open Sans', sans-serif;
+    }
+    </style>
+    <script>
+    function init () {
+        let array0 = [0, 1, 2, 3, 4, 5],
+            array1 = ['hola', 'adeu', 'fins aviat'],
+            array2 = []
+            
+            tmp = null
+
+        console.log('Originalment "array0" conté: ' + JSON.stringify(array0) + ', i té una longitud de: ' + array0.length)
+        console.log('Originalment "array1" conté: ' + JSON.stringify(array1) + ', i té una longitud de: ' + array1.length)
+
+        array1.push('a reveure')
+        array1.push('fins mai més')
+
+        console.log('\n')
+        console.log('Després de fer els "push" "array1" conté: ' + JSON.stringify(array1))
+
+        tmp = array1.pop()
+
+        console.log('Després de fer el "pop" "array1" conté: ' + JSON.stringify(array1) + ', i "tmp" conté: "' + tmp + '"')
+
+        tmp = array1.shift()
+
+        console.log('Després de fer el "shift" "array1" conté: ' + JSON.stringify(array1) + ', i "tmp" conté: "' + tmp + '"')
+
+        array2 = array0.concat(array1)
+
+        console.log('Després de fer el "concat" "array2" conté: ' + JSON.stringify(array2))
+
+        array2 = array0.slice(1,4)
+
+        console.log('Després de fer "slice" "array2" conté: ' + JSON.stringify(array2))
+    }
+    </script>
+    <body onload='init()'>
+        <br/>Obre les eines de desenvolupament a la pestanya 'console' per veure el resultat.
+    </body>
+</html>

@@ -1,0 +1,171 @@
+<html>
+    <head>
+        <meta charset='utf-8'/>
+        <title>Títol de la pàgina</title>
+    </head>
+    <style>
+    .arrodoneix {
+        border-radius: 10px;
+    }
+    .ex0 {
+        background-color: lightgray;
+        margin: auto;
+        max-width: 750px;
+    }
+    .ex1 {
+        display: flex;
+        flex-direction: row;
+        width: 100%;
+    }
+    .ex1 > .continguts {
+        background-color: lightgray;
+        width: calc(100vw - 250px);
+    }
+    .ex1 > .lateral {
+        background-color: gray;
+        max-width: 250px;
+    }
+    .ex2 {
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+        width: 100%; 
+    }
+    .ex2 > .imatge {
+        padding: 0 1em;
+    }
+    .ex2 > .continguts {
+        background-color: lightgray;
+        flex-grow: 1;
+    }
+    .ex2 > .continguts > h3 {
+        margin-top: 0;
+    }
+    .ex3 {
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+        width: 100%; 
+    }
+    .ex3 > .imatge {
+        align-self: center;
+        padding: 0 1em;
+    }
+    .ex3 > .continguts {
+        align-self: center;
+        background-color: lightgray;
+        flex-grow: 1;
+    }
+    .ex3 > .continguts > h3 {
+        margin-top: 0;
+    }
+    .ex4 {
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+        justify-content: center;
+        width: 100%;   
+    }
+    .ex4 > .divisio {
+        padding: 0 1em;
+        max-width: 25%;
+    }
+    .ex4 > .preferent {
+        flex-grow: 1;
+        max-width: 35%;
+    }
+    .ex4 > .divisio {
+        text-align: center;
+    }
+    .ex5 {
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+        justify-content: center;
+        width: 100%;   
+    }
+    .ex5 > .divisio {
+        align-self: center;
+        padding: 0 1em;
+        max-width: 20%;
+    }
+    .ex5 > .preferent {
+        flex-grow: 1;
+        max-width: 40%;
+    }
+    .ex5 > .divisio {
+        text-align: center;
+    }
+    </style>
+    <body>
+    <h2>Continguts centrats</h2>
+    <div class='ex0'>
+        Els continguts es centren automàticament si es defineixen els marges horitzontals com a 'auto', i es posa una mida màxima d'ample.
+    </div>
+    <h2>Continguts i barra a la dreta</h2>
+    <div class='ex1'>
+        <div class='continguts'>
+            Els continguts tenen la part més important de l'espai, normalment es tracta de textos dins de paràgrafs &lt;p&gt;
+        </div>
+        <div class='lateral'>
+            La barra lateral pot tenir enllaços, altres informacions o publicitat
+        </div>
+    </div>
+    <h2>Imatge a l'esquerra i continguts a la dreta (posicionament top)</h2>
+    <div class='ex2'>
+        <div class='imatge'>
+            <img class='arrodoneix' src='https://upload.wikimedia.org/wikipedia/commons/thumb/b/b4/The_Sun_by_the_Atmospheric_Imaging_Assembly_of_NASA%27s_Solar_Dynamics_Observatory_-_20100819.jpg/330px-The_Sun_by_the_Atmospheric_Imaging_Assembly_of_NASA%27s_Solar_Dynamics_Observatory_-_20100819.jpg' alt='La imatge del sol' width='100' />
+        </div>
+        <div class='continguts'>
+            <h3>Titol del text</h3>
+            <p>Contingut del text, en aquest cas es posiciona tot a la part alta dels contenedors.</p>
+        </div>
+    </div>
+    <h2>Imatge a l'esquerra i continguts a la dreta (centrats verticalment)</h2>
+    <div class='ex3'>
+        <div class='imatge'>
+            <img class='arrodoneix' src='https://upload.wikimedia.org/wikipedia/commons/thumb/b/b4/The_Sun_by_the_Atmospheric_Imaging_Assembly_of_NASA%27s_Solar_Dynamics_Observatory_-_20100819.jpg/330px-The_Sun_by_the_Atmospheric_Imaging_Assembly_of_NASA%27s_Solar_Dynamics_Observatory_-_20100819.jpg' alt='La imatge del sol' width='100' />
+        </div>
+        <div class='continguts'>
+            <h3>Titol del text</h3>
+            <p>Contingut del text, en aquest cas es posiciona tot centrat segons els contenedors.</p>
+        </div>
+    </div>
+    <h2>Divisions verticals (Posicionament top)</h2>
+    <div class='ex4'>
+        <div class='divisio'>
+            <img class='arrodoneix' src='https://upload.wikimedia.org/wikipedia/commons/thumb/b/b2/The_Bangkok_Supermoon_Photographs_by_Peak_Hora_10.jpg/450px-The_Bangkok_Supermoon_Photographs_by_Peak_Hora_10.jpg' alt='La imatge de la lluna' height='100' />
+            <h3>Titol del contingut 1</h3>
+            <p>Paràgraf del contingut 1 amb una mica de informació.</p>
+        </div>
+        <div class='divisio preferent'>
+            <img class='arrodoneix' src='https://upload.wikimedia.org/wikipedia/commons/thumb/c/c1/Jupiter_New_Horizons.jpg/450px-Jupiter_New_Horizons.jpg' alt='La imatge de la lluna' height='100' />
+            <h3>Titol del contingut 2</h3>
+            <p>Aquest paràgraf agafa més espai perquè li hem definit el flex-grow amb més preferencia. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+        </div>
+        <div class='divisio'>
+            <img class='arrodoneix' src='https://upload.wikimedia.org/wikipedia/commons/thumb/b/b4/The_Sun_by_the_Atmospheric_Imaging_Assembly_of_NASA%27s_Solar_Dynamics_Observatory_-_20100819.jpg/330px-The_Sun_by_the_Atmospheric_Imaging_Assembly_of_NASA%27s_Solar_Dynamics_Observatory_-_20100819.jpg' alt='La imatge del sol' height='100' />
+            <h3>Contingut amb imatge</h3>
+            <p>Cada una de les divisions és un contenedor que es pot organitzar com volguem.</p>
+        </div>
+    </div>
+    <h2>Divisions verticals (centrats verticalment)</h2>
+    <div class='ex5'>
+        <div class='divisio'>
+            <img class='arrodoneix' src='https://upload.wikimedia.org/wikipedia/commons/thumb/b/b2/The_Bangkok_Supermoon_Photographs_by_Peak_Hora_10.jpg/450px-The_Bangkok_Supermoon_Photographs_by_Peak_Hora_10.jpg' alt='La imatge de la lluna' width='100' />
+            <h3>Titol del contingut 1</h3>
+            <p>Paràgraf del contingut 1 amb una mica de informació.</p>
+        </div>
+        <div class='divisio'>
+            <img class='arrodoneix' src='https://upload.wikimedia.org/wikipedia/commons/thumb/b/b4/The_Sun_by_the_Atmospheric_Imaging_Assembly_of_NASA%27s_Solar_Dynamics_Observatory_-_20100819.jpg/330px-The_Sun_by_the_Atmospheric_Imaging_Assembly_of_NASA%27s_Solar_Dynamics_Observatory_-_20100819.jpg' alt='La imatge del sol' width='100' />
+            <h3>Contingut amb imatge</h3>
+            <p>Cada una de les divisions és un contenedor que es pot organitzar com volguem.</p>
+        </div>
+        <div class='divisio preferent'>
+            <img class='arrodoneix' src='https://upload.wikimedia.org/wikipedia/commons/thumb/c/c1/Jupiter_New_Horizons.jpg/450px-Jupiter_New_Horizons.jpg' alt='La imatge de la lluna' width='100' />
+            <h3>Titol del contingut 2</h3>
+            <p>Aquest paràgraf agafa més espai perquè li hem definit el flex-grow amb més preferencia. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+        </div>
+    </div>
+    </body>
+</html>

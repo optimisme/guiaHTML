@@ -1,0 +1,28 @@
+<html>
+    <head>
+        <meta charset='utf-8'/>
+        <link href="https://fonts.googleapis.com/css?family=Open+Sans&display=swap" rel="stylesheet">
+        <title>Títol de la pàgina</title>
+    </head>
+    <style>
+    body {
+        font-family: 'Open Sans', sans-serif;
+    }
+    </style>
+    <script>
+    function init () {
+        console.error('Registre d\'error (normalment vermell)')
+        console.warn('Registre d\'advertència (normalment groc)')
+        console.log('Registre normal')
+    }
+    </script>
+    <body onload='init()'>
+        <br/>Obre les eines de desenvolupament a la pestanya 'console' per veure tres tipus de comentari diferents.
+        <br/>
+        <br/>Recorda que els comentaris s'han de fer a nivell de programació, en un entorn de producció no hi ha d'haver comentaris per dos motius:
+        <br/>- Enlenteixen la pàgina
+        <br/>- Dónen informació de programació innecessaria
+        <br/>
+        <br/>Fixeu-vos que el comentari d'advertència i el comentari d'error, inclouen la traça d'informació sobre la posició on s'han generat (fletxa desplegable).
+    </body>
+</html>

@@ -1,0 +1,207 @@
+<html>
+    <head>
+        <meta charset='utf-8'/>
+        <title>Exercici</title>
+        <link href='https://fonts.googleapis.com/css?family=Open+Sans&display=swap' rel='stylesheet'>
+        <link rel='stylesheet' href='https://fonts.googleapis.com/icon?family=Material+Icons'>
+        <link rel='stylesheet' href='https://code.getmdl.io/1.3.0/material.teal-orange.min.css'>
+        <script defer src='https://code.getmdl.io/1.3.0/material.min.js'></script>
+    </head>
+    <style>
+    body {
+        font-family: 'Open Sans', sans-serif;
+        margin: 0em;
+        padding: 0em;
+    }
+    .menu {
+        align-items: center;
+        backdrop-filter: saturate(180%) blur(20px);
+        background-color: rgba(255,255,255,0.7);
+        border-bottom: solid 1px grey;
+        display: flex;
+        flex-direction: row;
+        position: sticky;
+        min-height: 48px;
+        top: 0px;
+        z-index: 10;
+    }
+    .menu > div:first-child {
+        margin-left: 8px;
+    }
+    .menu > div {
+        cursor: pointer;
+        margin: 0 8px;
+    }
+    .menu > div:hover {
+        color: grey;
+    }
+    .menu > div:last-child {
+        margin-right: 8px;
+    }
+    .separador {
+        flex-grow: 2;
+    }
+    .continguts {
+        display: flex;
+        flex-direction: column;
+        margin-top: 48px;
+        min-height: calc(100vh);
+    }
+    .peu {
+        background-color: black;
+        display: flex;
+        flex-direction: row;
+        justify-content: space-evenly;
+        min-height: 256px;
+        font-size: 0.9em;
+        padding: 2em;
+    }
+    .peu > div {
+        border-left: solid 1px grey;
+        padding-left: 16px;
+    }
+    .peuTitol {
+        color: white;
+        margin-bottom: 8px;
+    }
+    .peuLink {
+        color: grey;
+    }
+    .peuLink:hover {
+        color: white;
+        cursor: pointer;
+        text-decoration: underline;
+    }
+    /*
+    .tapa {
+        background-color: red;
+        clip-path: inset(0 10% 0 10%);
+        height: 350px;
+        width: 100%;
+    }
+    */
+    .destacat {
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        margin-bottom: 48px;
+    }
+    .destacat > div {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        margin-left: 16px;
+        width: calc(50% - 316px);
+    }
+    .targes {
+        display: flex;
+        flex-direction: row;
+        justify-content: center; 
+        margin-bottom: 48px;  
+    }
+    .targes > div {
+        margin: 0 16px;
+    }
+    .demo-card-square.mdl-card {
+        width: 256px;
+        height: 256px;
+    }
+    .demo-card-square > .mdl-card__title {
+        color: #fff;
+        text-shadow: 1px 1px black;
+    }
+    .demo-card-square > .mdl-card__titleA {
+        background: url('https://upload.wikimedia.org/wikipedia/commons/thumb/a/a8/Alice%27s_Adventures_in_Wonderland_-_Carroll%2C_Robinson_-_S001_-_Cover.jpg/330px-Alice%27s_Adventures_in_Wonderland_-_Carroll%2C_Robinson_-_S001_-_Cover.jpg') center / cover;
+    }
+    .demo-card-square > .mdl-card__titleB {
+        background: url('https://upload.wikimedia.org/wikipedia/commons/thumb/2/26/V%C3%A4xj%C3%B6_Cathedral_1.jpg/330px-V%C3%A4xj%C3%B6_Cathedral_1.jpg') center / cover;
+    }
+    .demo-card-square > .mdl-card__titleC {
+        background: url('https://upload.wikimedia.org/wikipedia/commons/thumb/a/ae/Estany_de_Sant_Maurici.JPG/450px-Estany_de_Sant_Maurici.JPG') center / cover;
+    }
+    </style>
+    <body>
+       <div class='menu'>
+            <div><i class="material-icons">all_inclusive</i></div>
+            <div class='separador'></div>
+            <div>Empresa</div>
+            <div>Productes</div>
+            <div>Contacte</div>
+            <div class='separador'></div>
+            <div><i class="material-icons">search</i></div>
+       </div>
+       <div class='continguts'>
+            <div class='destacat'>
+                <img src='https://upload.wikimedia.org/wikipedia/en/thumb/e/e7/Chagall_IandTheVillage.jpg/330px-Chagall_IandTheVillage.jpg' width='300'/>
+                <div>
+                    <h1>MODERN</h1>
+                    <div class='explica'>L'art modern representa com a innovació davant la tradició artística de l'art occidental una nova forma d'entendre l'estètica</div>
+                </div>
+            </div>
+            <div class='targes'>
+                <div class="demo-card-square mdl-card mdl-shadow--2dp">
+                    <div class="mdl-card__title mdl-card__titleA mdl-card--expand">
+                      <h2 class="mdl-card__title-text">Creativitat</h2>
+                    </div>
+                    <div class="mdl-card__supporting-text">
+                      Creativitat, Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                    </div>
+                    <div class="mdl-card__actions mdl-card--border">
+                      <a class="mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect">
+                        Sigues creatiu
+                      </a>
+                    </div>
+                </div>
+                <div class="demo-card-square mdl-card mdl-shadow--2dp">
+                    <div class="mdl-card__title mdl-card__titleB mdl-card--expand">
+                      <h2 class="mdl-card__title-text">Experiències</h2>
+                    </div>
+                    <div class="mdl-card__supporting-text">
+                      Experiències, Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                    </div>
+                    <div class="mdl-card__actions mdl-card--border">
+                      <a class="mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect">
+                        Informa't
+                      </a>
+                    </div>
+                </div>
+                <div class="demo-card-square mdl-card mdl-shadow--2dp">
+                    <div class="mdl-card__title mdl-card__titleC mdl-card--expand">
+                      <h2 class="mdl-card__title-text">Aventura</h2>
+                    </div>
+                    <div class="mdl-card__supporting-text">
+                      Aventura, Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                    </div>
+                    <div class="mdl-card__actions mdl-card--border">
+                      <a class="mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect">
+                        Viu
+                      </a>
+                    </div>
+                </div>
+            </div>
+       </div>
+       <div class='peu'>
+            <div>
+                <div class='peuTitol'>Productes</div>
+                <div class='peuLink'>Creativitat</div>
+                <div class='peuLink'>Experiències</div>
+                <div class='peuLink'>Aventura</div>
+            </div>
+            <div>
+                <div class='peuTitol'>Xarxes i comunitat</div>
+                <div class='peuLink'>Blog</div>
+                <div class='peuLink'>Notícies</div>
+                <div>
+
+                </div>
+            </div>
+            <div>
+                <div class='peuTitol'>Informació</div>
+                <div class='peuLink'>Documentació</div>
+                <div class='peuLink'>Ajuda online</div>
+                <div class='peuLink'>Contacte</div>
+            </div>
+       </div>
+    </body>
+</html>

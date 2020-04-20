@@ -1,0 +1,182 @@
+<html>
+    <head>
+        <meta charset='utf-8'/>
+        <title>Títol de la pàgina</title>
+    </head>
+    <style>
+    .flex {
+        border: 1px grey solid;
+        display: flex;
+        flex-wrap: wrap; /* Això indica que els elements no sobresurten del contenedor */
+        width: 300px;
+    }
+    .dirrow {
+        flex-direction: row;
+    }
+    .rowreves {
+        flex-direction: row-reverse;
+    }
+    .justend {
+        justify-content: flex-end;
+    }
+    .justcenter {
+        justify-content: center;;
+    }
+    .justequi {
+        justify-content: space-between;
+    }
+    .justenvo {
+        justify-content: space-around;
+    }
+    .petit {
+        background-color: cadetblue;
+        border-radius: 5px;
+        margin: 5px;
+        padding: 5px;
+    }
+    .mitja {
+        background-color: lightblue;
+        border-radius: 5px;
+        margin: 5px;
+        padding: 5px;
+        flex-grow: 2;
+    }
+    .gran {
+        background-color: lightgreen;
+        border-radius: 5px;
+        margin: 5px;
+        padding: 5px;
+        flex-grow: 5;
+    }
+    .vertical {
+        min-height: 100px;
+    }
+    .alignstart {
+        align-items: flex-start;
+    }
+    .alignend {
+        align-items: flex-end;
+    }
+    .aligncenter {
+        align-items: center;
+    }
+    .alignbase {
+        align-items: baseline;
+    }
+    </style>
+    <body>
+        Flex en fila
+        <div class='flex dirrow'>
+            <div class='petit'>A</div>
+            <div class='petit'>B</div>
+            <div class='petit'>C</div>
+            <div class='petit'>D</div>
+            <div class='petit'>E</div>
+            <div class='petit'>F</div>
+            <div class='petit'>G</div>
+            <div class='petit'>H</div>
+        </div>
+        <br/>Flex en fila cap a l'esquerra
+        <div class='flex rowreves'>
+            <div class='petit'>A</div>
+            <div class='petit'>B</div>
+            <div class='petit'>C</div>
+            <div class='petit'>D</div>
+            <div class='petit'>E</div>
+            <div class='petit'>F</div>
+            <div class='petit'>G</div>
+            <div class='petit'>H</div>
+        </div>
+        <br/>Flex en fila alineat a la dreta del contenedor
+        <div class='flex justend'>
+            <div class='petit'>A</div>
+            <div class='petit'>B</div>
+            <div class='petit'>C</div>
+            <div class='petit'>D</div>
+            <div class='petit'>E</div>
+            <div class='petit'>F</div>
+            <div class='petit'>G</div>
+            <div class='petit'>H</div>
+        </div>
+        <br/>Flex en fila alineat al centre del contenedor
+        <div class='flex justcenter'>
+            <div class='petit'>A</div>
+            <div class='petit'>B</div>
+            <div class='petit'>C</div>
+            <div class='petit'>D</div>
+            <div class='petit'>E</div>
+            <div class='petit'>F</div>
+            <div class='petit'>G</div>
+            <div class='petit'>H</div>
+            <div class='petit'>I</div>
+            <div class='petit'>J</div>
+            <div class='petit'>K</div>
+            <div class='petit'>L</div>
+            <div class='petit'>M</div>
+        </div>
+        <br/>Flex en fila alineat amb espai equidistant
+        <div class='flex justequi'>
+            <div class='petit'>A</div>
+            <div class='petit'>B</div>
+            <div class='petit'>C</div>
+            <div class='petit'>D</div>
+            <div class='petit'>E</div>
+        </div>
+        <br/>Flex en fila alineat amb espai envolvent
+        <div class='flex justenvo'>
+            <div class='petit'>A</div>
+            <div class='petit'>B</div>
+            <div class='petit'>C</div>
+            <div class='petit'>D</div>
+            <div class='petit'>E</div>
+        </div>
+        <br/>La propietat grow dels items, defineix (amplía) la seva mida
+        <div class='flex justcenter'>
+            <div class='petit'>A</div>
+            <div class='petit'>B</div>
+            <div class='mitja'>C</div>
+            <div class='petit'>D</div>
+            <div class='petit'>E</div>
+        </div>
+        <br/>Un altre exemple de grow
+        <div class='flex justcenter'>
+            <div class='petit'>A</div>
+            <div class='petit'>B</div>
+            <div class='mitja'>C</div>
+            <div class='gran'>D</div>
+            <div class='petit'>E</div>
+        </div>
+        <br/>La propietat align-items fa referència a la posició vertical respecte al contenedor flex
+        <div class='flex vertical alignstart'>
+            <div class='petit'>A</div>
+            <div class='petit'>B<br/>Z</div>
+            <div class='petit'>C</div>
+            <div class='petit'>D</div>
+            <div class='petit'>E</div>
+        </div>
+        <br/>Verticalmnt, es poden alinear al final
+        <div class='flex vertical alignend'>
+            <div class='petit'>A</div>
+            <div class='petit'>B<br/>Z</div>
+            <div class='petit'>C</div>
+            <div class='petit'>D</div>
+            <div class='petit'>E</div>
+        </div>
+        <br/>Verticalment, es poden centrar
+        <div class='flex vertical aligncenter'>
+            <div class='petit'>A</div>
+            <div class='petit'>B<br/>Z</div>
+            <div class='petit'>C</div>
+            <div class='petit'>g</div>
+            <div class='petit'>E</div>
+        </div>
+        <br/>Verticalment, es poden alinear segons la base del text (fixa't en la part inferior de la g respecte les altres lletres)
+        <div class='flex vertical alignbase'>
+            <div class='petit'>A</div>
+            <div class='petit'>B<br/>Z</div>
+            <div class='petit'>C</div>
+            <div class='petit'>g</div>
+            <div class='petit'>E</div>
+        </div>
+    </body>
+</html>

@@ -1,0 +1,84 @@
+<html>
+    <head>
+        <meta charset='utf-8'/>
+        <title>Títol de la pàgina</title>
+        <link href='https://fonts.googleapis.com/css?family=Open+Sans&display=swap' rel='stylesheet'>
+        <link rel='stylesheet' href='https://fonts.googleapis.com/icon?family=Material+Icons'>
+        <link rel='stylesheet' href='https://code.getmdl.io/1.3.0/material.teal-orange.min.css'>
+        <script defer src='https://code.getmdl.io/1.3.0/material.min.js'></script>
+    </head>
+    <style>
+    body {
+        font-family: 'Open Sans', sans-serif;
+        margin: 0;
+        padding: 0;
+    }
+    #quadre {
+        background-color: green;
+        position: absolute;
+        left: 50px;
+        top: 100px;
+        width: 50px;
+        height: 50px;
+    }
+    </style>
+    <script>
+    var fpsDataActual = 0,
+        fpsDataAnterior = 0,
+        fpsDiferencia = 0,
+        quadre = null,
+        direccioH = 'quiet',
+        direccioV = 'quiet'
+        x = 50, // La posició inicial del CSS
+        y = 100,
+        distancia = 0
+
+    function init () {
+        document.body.addEventListener('keydown', teclaApretada)
+        document.body.addEventListener('keyup',   teclaAlliberada)
+        quadre = document.getElementById('quadre')
+        run()
+    }
+
+    function run () {
+
+        fpsDataActual = new Date()
+        fpsDiferencia = (fpsDataActual - fpsDataAnterior) / 1000
+        if (fpsDiferencia > 5) fpsDiferencia = 0
+
+        distancia = fpsDiferencia * 100 // Avançem 100px cada segon
+
+        switch (direccioH) {
+        case 'dreta': x = x + distancia; break
+        case 'esquerra': x = x - distancia; break
+        }
+        switch (direccioV) {
+        case 'amunt': y = y - distancia; break
+        case 'avall': y = y + distancia; break
+        }
+        quadre.style.left = x
+        quadre.style.top = y
+        
+        fpsDataAnterior = fpsDataActual
+
+        requestAnimationFrame(run)
+    }
+    function teclaApretada (e) {
+        switch (e.key) {
+        case 'ArrowLeft':   direccioH = 'esquerra'; break
+        case 'ArrowRight':  direccioH = 'dreta'; break
+        case 'ArrowUp':     direccioV = 'amunt'; break
+        case 'ArrowDown':   direccioV = 'avall'; break
+        }
+    }
+    function teclaAlliberada (e) {
+        if (e.key === 'ArrowLeft'  && direccioH === 'esquerra') { direccioH = 'quiet' }
+        if (e.key === 'ArrowRight' && direccioH === 'dreta')    { direccioH = 'quiet' }
+        if (e.key === 'ArrowUp'    && direccioV === 'amunt')    { direccioV = 'quiet' }
+        if (e.key === 'ArrowDown'  && direccioV === 'avall')    { direccioV = 'quiet' }
+    }
+    </script>
+    <body onload='init()'>
+        <div id='quadre'></div>
+    </body>
+</html>

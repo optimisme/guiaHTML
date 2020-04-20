@@ -1,0 +1,48 @@
+<html>
+    <head>
+        <meta charset='utf-8'/>
+        <title>Exercici</title>
+        <link href='https://fonts.googleapis.com/css?family=Open+Sans&display=swap' rel='stylesheet'>
+        <link rel='stylesheet' href='https://fonts.googleapis.com/icon?family=Material+Icons'>
+    </head>
+    <style>
+    body {
+        font-family: 'Open Sans', sans-serif;
+        margin: 0em;
+        padding: 1em;
+    }
+    
+    </style>
+    <body>
+        <h1>Formulari</h1>
+        <form>
+            Nom:<br>
+            <input type='text' name='name' value='Toni' pattern="[^0-9]*" title="El nom no pot tenir números">
+            <br/>
+            Telèfon:<br>
+            <input type='text' name='phone' pattern="[0-9]*" title="El telèfon han de ser números">
+            <br/>
+            Correu electrònic:<br>
+            <input type='text' name='email' value='' pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$" title="No és un format de correu vàlid">
+            <br/>
+            Estat civil:
+            <br/>
+            <input type='radio' name='ecivil' value='solter' checked>Solter<br/>
+            <input type='radio' name='ecivil' value='casat'> Casat<br/>
+            <br/>
+            Situació laboral:
+            <br/>
+            <input type='checkbox' name='slaboral' value='treballa' checked>Treballa<br/>
+            <input type='checkbox' name='slaboral' value='estudia'>Estudia<br/>
+            <br/>
+            Nivell de ganulitat:
+            <select name='gandulitat'>
+                <option value='poc'>Poc gandul</option>
+                <option value='normal'>Gandul</option>
+                <option value='molt'>Molt gandul</option>
+            </select>
+            <br/><br/><br/>
+            <button>Enviar</button>
+        </form>
+    </body>
+</html>

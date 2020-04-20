@@ -1,0 +1,48 @@
+<html>
+    <head>
+        <meta charset='utf-8'/>
+        <link href="https://fonts.googleapis.com/css?family=Open+Sans&display=swap" rel="stylesheet">
+        <title>Títol de la pàgina</title>
+    </head>
+    <style>
+    body {
+        font-family: 'Open Sans', sans-serif;
+    }
+    </style>
+    <script>
+    function init () {
+        let obj0 = {
+                lloc: 'barcelona',
+                temperatura: 25,
+                temps: 'pluja'
+            },
+            obj1 = null
+            txt0 = ''
+            
+
+        console.log('Originalment "obj0" conté: ' + JSON.stringify(obj0))
+        console.log('Es poden llegir els camps per separat, "obj0.lloc" conté: ' + obj0.lloc)
+        console.log('                                       "obj0.temperatura" conté: ' + obj0.temperatura)
+        console.log('                                       "obj0.temps" conté: ' + obj0.temps)
+
+
+        txt0 = JSON.stringify(obj0)
+
+        console.log('Per obtenir una cadena de text amb els continguts de "obj0" fem servir JSON.stringify: typeof obj0 = ' + typeof obj0 + ', typeof txt0 = ' + typeof txt0)
+        console.log('    ', txt0)
+
+        obj0.lloc = 'vic'
+        obj0.temperatura = 15
+        obj0.temps = 'boira'
+
+        console.log('Modificant cada un dels camps "obj0" conté: ' + JSON.stringify(obj0))
+
+        obj0 = JSON.parse(txt0)
+
+        console.log('Transformant el text original "obj0" cap a objecte: ' + JSON.stringify(obj0))
+    }
+    </script>
+    <body onload='init()'>
+        <br/>Obre les eines de desenvolupament a la pestanya 'console' per veure el resultat.
+    </body>
+</html>

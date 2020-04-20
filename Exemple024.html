@@ -1,0 +1,46 @@
+<html>
+    <head>
+        <meta charset='utf-8'/>
+        <title>Títol de la pàgina</title>
+    </head>
+    <style>
+    div {
+        position: absolute;
+        background-color: lightskyblue;
+        width: 20%;
+        height: 20%;
+    }
+    .p00 {
+        top: 25%;
+        left: 10%;
+        transform: rotateZ(-5deg);
+    }
+    .p01 {
+        top: 25%;
+        left: 40%;
+        transform: scale3d(1, 0.5, 1);
+    }
+    .p02 {
+        top: 25%;
+        left: 70%;
+        transform: translate3d(-25%, 0, 0);
+    }
+    .p03 {
+        top: 55%;
+        left: 10%;
+        transform: perspective(500px) rotateX(10deg) rotateY(45deg);
+    }
+    </style>
+    <body>
+        La transformació rotate, gira la capa en els eixos x,y,z (sense perspectiva)
+        <br/>La transformació scale, canvia la mida de la capa
+        <br/>La transformació translate, mou l'objecte respecte la seva posició sense afectar als altres elements
+        <br/>Per afegir perspectiva als efectes, cal definir el valor de la perspectiva a aplicar
+        <br/>Es poden definir les transformacions per eixos concrets (X,Y,Z) o globalment amb ...3d(x, y, z)
+        <br/>Les transformacions són acumulables, s'en poden definir en cadena per modificar més d'un paràmetre
+        <div class='p00'>rotateZ</div>
+        <div class='p01'>scale</div>
+        <div class='p02'>translate</div>
+        <div class='p03'>rotateX i rotateY amb perspectiva</div>
+    </body>
+</html>

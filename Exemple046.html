@@ -1,0 +1,30 @@
+<html>
+    <head>
+        <meta charset='utf-8'/>
+        <link href="https://fonts.googleapis.com/css?family=Open+Sans&display=swap" rel="stylesheet">
+        <title>Títol de la pàgina</title>
+    </head>
+    <style>
+    body {
+        font-family: 'Open Sans', sans-serif;
+    }
+    </style>
+    <script>
+    function init () {
+        let text = 'Lorem ipsum dolor sit amet, consectetur adipisici elit',
+            subtext0 = text.substr(6, 10),
+            subtext1 = text.substring(6, 10),
+            subtext2 = text.substring(6)
+            subtext3 = text.substring(6, text.length - 5)
+    
+        console.log('El text original: "' + text + '"')
+        console.log('La variable "subtext0" conté: "' + subtext0 + '"\n  (substr ens permet agafar un subtext a partir d\'una posició inicial i una longitud)')
+        console.log('La variable "subtext1" conté: "' + subtext1 + '"\n  (substring ens permet agafar un subtext a partir d\'una posició inicial i una posició final')
+        console.log('La variable "subtext2" conté: "' + subtext2 + '"\n  (el segon paràmetre de "substring" és opcional, si no es posa retalla fins al final)')
+        console.log('La variable "subtext3" conté: "' + subtext3 + '"\n  (.length ens dóna la longitud del text')
+    }
+    </script>
+    <body onload='init()'>
+        <br/>Obre les eines de desenvolupament a la pestanya 'console' per veure el resultat.
+    </body>
+</html>

@@ -1,0 +1,45 @@
+<html>
+    <head>
+        <meta charset='utf-8'/>
+        <link href="https://fonts.googleapis.com/css?family=Open+Sans&display=swap" rel="stylesheet">
+        <title>Títol de la pàgina</title>
+    </head>
+    <style>
+    body {
+        font-family: 'Open Sans', sans-serif;
+    }
+    #quadre {
+        color:rgb(10, 10, 100);
+        position: absolute;
+        border: 5px dashed red;
+        border-radius: 5px;
+        background-color: gray;
+        padding: 8px;
+        top: 75px;
+        left: 50px;
+        height: 100px;
+    }
+    </style>
+    <script>
+    function init () {
+        let ref = document.getElementById('quadre'),
+            style = window.getComputedStyle(ref, '')
+
+        console.log('Font: ', style.getPropertyValue('font-family'))
+        console.log('Color del text: ', style.getPropertyValue('color'))
+        console.log('Borde: ', style.getPropertyValue('border'))
+        console.log('Radi: ', style.getPropertyValue('border-radius'))
+        console.log('Alt: ', style.getPropertyValue('height'))
+        console.log('Ample: ', style.getPropertyValue('width'))
+        console.log('Fons original: ', style.getPropertyValue('background-color'))
+
+        // Aquí modifica el color del fons, per comprovar que és l'estil computat
+        ref.style.backgroundColor = 'green'
+        console.log('Fons modificat: ', style.getPropertyValue('background-color'))
+    }
+    </script>
+    <body onload='init()'>
+        <br/>Obre les eines de desenvolupament a la pestanya 'console' per veure el resultat.
+        <div id='quadre'>Text del quadre</div>
+    </body>
+</html>

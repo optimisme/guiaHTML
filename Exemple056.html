@@ -1,0 +1,34 @@
+<html>
+    <head>
+        <meta charset='utf-8'/>
+        <link href="https://fonts.googleapis.com/css?family=Open+Sans&display=swap" rel="stylesheet">
+        <title>Títol de la pàgina</title>
+    </head>
+    <style>
+    body {
+        font-family: 'Open Sans', sans-serif;
+    }
+    </style>
+    <script>
+    function init () {
+        let a = '{ a: 5 }',
+            b = '{ "a": 5 }',
+            tmp = null
+        try {
+            tmp = JSON.parse(a)
+            console.log('Resultat de parsejar "a": ', JSON.stringify(tmp))
+        } catch (e) {
+            console.error('Hi ha hagut un error parsejant "a": ', e)
+        }
+        try {
+            tmp = JSON.parse(b)
+            console.log('Resultat de parsejar "b": ', JSON.stringify(tmp))
+        } catch (e) {
+            console.error('Hi ha hagut un error parsejant "b": ', e)
+        }
+    }
+    </script>
+    <body onload='init()'>
+        <br/>Obre les eines de desenvolupament a la pestanya 'console' per veure el resultat.
+    </body>
+</html>

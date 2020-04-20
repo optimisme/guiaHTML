@@ -1,0 +1,32 @@
+<html>
+    <head>
+        <meta charset='utf-8'/>
+        <link href="https://fonts.googleapis.com/css?family=Open+Sans&display=swap" rel="stylesheet">
+        <title>Títol de la pàgina</title>
+    </head>
+    <style>
+    body {
+        font-family: 'Open Sans', sans-serif;
+    }
+    </style>
+    <script>
+    function init () {
+        let color = 'verd'
+
+        switch (color) {
+            case 'verd': console.log('La condició coincideix, i el break provoca que no es mirin més condicions'); break
+            case 'vermell': console.log('El color no coincideix, no entra aquí'); break;
+            default: console.log('Ja ha trobat una condicio que coincideix, no entra aquí.')
+        }
+
+        switch (color) {
+            case 'vermell': console.log('Com que no hi ha break entra aquí també')
+            case 'verd': console.log('La condició coincideix, però com que no hi ha break segueix mirant')
+            default: console.log('Com que no hi ha break acaba entrant al default')
+        }
+    }
+    </script>
+    <body onload='init()'>
+        <br/>Obre les eines de desenvolupament a la pestanya 'console' per veure el resultat.
+    </body>
+</html>
