@@ -151,7 +151,9 @@
     }
     function dibuixa () {
         // Esborrar el canvas a blanc
-        ctx.clearRect(0, 0, cnv.width, cnv.height)
+        // ctx.clearRect(0, 0, cnv.width, cnv.height) // No funciona per alguna extranya raó
+        ctx.fillStyle = 'white'
+        ctx.fillRect(0, 0, cnv.width, cnv.height)
 
         // Ajuda a dibuixar linies sense aliasing
         ctx.save()
