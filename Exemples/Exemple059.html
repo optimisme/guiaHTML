@@ -1,4 +1,3 @@
-
 <html>
     <head>
         <meta charset='utf-8'/>
@@ -7,6 +6,7 @@
         <link rel='stylesheet' href='https://fonts.googleapis.com/icon?family=Material+Icons'>
         <link rel='stylesheet' href='https://code.getmdl.io/1.3.0/material.teal-orange.min.css'>
         <script defer src='https://code.getmdl.io/1.3.0/material.min.js'></script>
+        <script src="formUtils.js"></script>
     </head>
     <style>
     body {
@@ -37,23 +37,36 @@
     }
     </style>
     <script>
-    function init () {
-        let sel = null
-        console.log(document.getElementById('firstname').value)
-        console.log(document.getElementById('lastname').value)
-        console.log(document.querySelector('input[name="estudisPrevis"]:checked').value)
-        console.log(document.querySelector('input[name="estudisExtra"]:checked').value)
-        console.log('Superior? ', document.getElementById('estudisFutursSUP').checked)
-        console.log('Universitat? ', document.getElementById('estudisFutursUNI').checked)
-        sel = document.getElementById('personalviatjar')
-        console.log(sel[sel.selectedIndex].value)
-        console.log(document.getElementById('personalcabell').value)
-        console.log(document.getElementById('aficionsID').value)
+    function setDades () {
+        setInputTextValue('firstname', 'Albert')
+        setInputTextValue('lastname', 'Palacios')
+        setInputRadioValue('estudisPrevis', 'eso')
+        setInputRadioValue('estudisExtra', 'mus')
+        setInputCheckboxValue('estudisFuturs', 'sup', true)
+        setInputSelectValue('personalviatjar', 'no')
+        setInputSelectValue('personalcabell', 'castany')
+        setInputTextareaValue('aficionsID', 'caminar')
+
+    }
+    function getDades () {
+        let obj = {
+            firstname: getInputTextValue('firstname'),
+            pattren: document.getElementById('firstname').checkValidity(),
+            lastname: getInputTextValue('lastname'),
+            estudisPrevis: getInputRadioValue('estudisPrevis'),
+            estudisExtra: getInputRadioValue('estudisExtra'),
+            estudisFuturs: getInputCheckboxValues('estudisFuturs'),
+            personalviatjar: getInputSelectValue('personalviatjar'),
+            personalcabell: getInputSelectValue('personalcabell'),
+            aficions: getInputTextareaValue('aficionsID')
+        }
+
+        console.log('Dades del formulari:\n', obj)
     }
     </script>
-    <body onload='init()'>
+    <body onload='setDades()'>
     <div class='outBox'>
-        <br/>Obre les eines de desenvolupament a la pestanya 'console' per veure el resultat.
+        <br/>Obre les eines de desenvolupament a la pestanya 'console' per veure el resultat quan apretes el botó 'Enviar'
         <br/><br/><br/>
         <form action='/paginaAccio' target='_blank' method='GET'>
             <legend>Informació personal</legend>
@@ -107,12 +120,12 @@
             <div class='subtitol'>Estudis futurs</div>
             <div class='opcions'>
                 <label class='mdl-checkbox mdl-js-checkbox mdl-js-ripple-effect' for='estudisFutursSUP'>
-                    <input type='checkbox' id='estudisFutursSUP' value='sup' class='mdl-checkbox__input'>
+                    <input type='checkbox' id='estudisFutursSUP' value='sup' name='estudisFuturs' class='mdl-checkbox__input'>
                     <span class='mdl-checkbox__label'>Grau Superior</span>
                 </label>
                 <br/>
                 <label class='mdl-checkbox mdl-js-checkbox mdl-js-ripple-effect' for='estudisFutursUNI'>
-                    <input type='checkbox' id='estudisFutursUNI' value='uni' class='mdl-checkbox__input' checked>
+                    <input type='checkbox' id='estudisFutursUNI' value='uni' name='estudisFuturs' class='mdl-checkbox__input' checked>
                     <span class='mdl-checkbox__label'>Universitat</span>
                 </label>
             </div>
@@ -128,8 +141,8 @@
             </div>
             <div class='mdl-textfield mdl-js-textfield mdl-textfield--floating-label'>
                 <select id='personalcabell' class='mdl-textfield__input' name='cabell'>
-                    <option value='ros'>Ros</option>
-                    <option value='castany' selected>Castany</option>
+                    <option value='ros' selected>Ros</option>
+                    <option value='castany'>Castany</option>
                     <option value='negre'>Negre</option>
                 </select>
                 <label class='mdl-textfield__label' for='octane'>Color del cabell</label>
@@ -143,7 +156,7 @@
             </div>
             <br/>
             <div class='boto'>
-                <button type='submit' class='mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--colored'>Enviar</button>
+                <button type='button' onclick="getDades()" class='mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--colored'>Enviar</button>
             </div>
         </form>
     </div>

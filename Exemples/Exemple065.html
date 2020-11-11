@@ -10,25 +10,31 @@
     <style>
     body {
         font-family: 'Open Sans', sans-serif;
-    }
-    #quadre {
-        position: absolute;
-        top: 25px;
-        left: 25px;
-        height: 100px;
-        width: 100px;
+        padding: 2em;
     }
     </style>
     <script>
+    var cnt = 0
     function init () {
-        let ref = document.getElementById('quadre')
-
-        ref.style.border = '5px dashed red'
-        ref.style.backgroundColor = 'green'
-        ref.style.width = '200px';
+        setTimeout(apuntaTimeout, 5000)
+        setInterval(apuntaInterval, 1000)
+    }
+    function apuntaTimeout () {
+        let ref = document.getElementById('timeout')
+        ref.innerHTML = 'FET'
+    }
+    function apuntaInterval () {
+        let ref = document.getElementById('interval')
+        ref.innerHTML += 'Afegit: ' + cnt + '<br/>'
+        cnt = cnt + 1
     }
     </script>
     <body onload='init()'>
-        <div id='quadre'></div>
+        <div>Un únic timeout als 5 segons:</div>
+        <div id='timeout'>&nbsp;</div>
+        <div>Aquí apunta cada segon:</div>
+        <div id='interval'></div>
     </body>
 </html>
+
+
