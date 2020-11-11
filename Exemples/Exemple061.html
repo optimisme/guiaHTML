@@ -8,64 +8,38 @@
     body {
         font-family: 'Open Sans', sans-serif;
     }
-    #lletra {
+    #quadre {
+        color:rgb(10, 10, 100);
         position: absolute;
-        border: 5px dashed black;
+        border: 5px dashed red;
         border-radius: 5px;
         background-color: gray;
-        color: black;
-        font-size: 1.5em;
-        font-weight: bold;
         padding: 8px;
         top: 75px;
         left: 50px;
+        height: 100px;
     }
     </style>
     <script>
-    // Apuntem l'event de pàgina carregada amb el codi 
-    // enlloc de dins del tag body com en els altres exemples
-    window.addEventListener('DOMContentLoaded', init, false)
-
     function init () {
-        let lletra = document.getElementById('lletra')
+        let ref = document.getElementById('quadre'),
+            style = window.getComputedStyle(ref, '')
 
-        lletra.addEventListener('mousemove', mousemove)
-        document.body.addEventListener('keydown', keyDown)
-    }
+        console.log('Font: ', style.getPropertyValue('font-family'))
+        console.log('Color del text: ', style.getPropertyValue('color'))
+        console.log('Borde: ', style.getPropertyValue('border'))
+        console.log('Radi: ', style.getPropertyValue('border-radius'))
+        console.log('Alt: ', style.getPropertyValue('height'))
+        console.log('Ample: ', style.getPropertyValue('width'))
+        console.log('Fons original: ', style.getPropertyValue('background-color'))
 
-    function keyDown (e) {
-        e.preventDefault()
-        let lletra = document.getElementById('lletra'),
-            style = window.getComputedStyle(lletra, ''),
-            x = parseInt(style.getPropertyValue('left')),
-            y = parseInt(style.getPropertyValue('top')),
-            ample = window.innerWidth,
-            alt = window.innerHeight
-
-        switch (e.key) {
-        case 'ArrowLeft':   if (x > 10) x = x - 10; break
-        case 'ArrowRight':  if (x < (ample - 100))  x = x + 10; break
-        case 'ArrowUp':     if (y > 10) y = y - 10; break
-        case 'ArrowDown':   if (y < (alt - 100))    y = y + 10; break
-        default:
-            if (e.keyCode >= 65 && e.keyCode <= 90) {
-                lletra.innerHTML = e.key
-            }
-        }
-
-        lletra.style.left = x
-        lletra.style.top = y
-    }
-
-    function mousemove (e) {
-        e.preventDefault()
-
-        let lletra = document.getElementById('lletra')
-        lletra.innerHTML = e.clientX + ', ' + e.clientY
+        // Aquí modifica el color del fons, per comprovar que és l'estil computat
+        ref.style.backgroundColor = 'green'
+        console.log('Fons modificat: ', style.getPropertyValue('background-color'))
     }
     </script>
-    <body>
-        <br/>Apreta una fletxa de direcció, una tecla de lletra o mou el mouse sobre del quadre
-        <div id='lletra'></div>
+    <body onload='init()'>
+        <br/>Obre les eines de desenvolupament a la pestanya 'console' per veure el resultat.
+        <div id='quadre'>Text del quadre</div>
     </body>
 </html>
