@@ -51,7 +51,7 @@
     function getDades () {
         let obj = {
             firstname: getInputTextValue('firstname'),
-            pattren: document.getElementById('firstname').checkValidity(),
+            patternvalid: document.getElementById('firstname').checkValidity(),
             lastname: getInputTextValue('lastname'),
             estudisPrevis: getInputRadioValue('estudisPrevis'),
             estudisExtra: getInputRadioValue('estudisExtra'),
@@ -59,6 +59,10 @@
             personalviatjar: getInputSelectValue('personalviatjar'),
             personalcabell: getInputSelectValue('personalcabell'),
             aficions: getInputTextareaValue('aficionsID')
+        }
+
+        if (obj.patternvalid) {
+            console.log('El nom és vàlid')
         }
 
         console.log('Dades del formulari:\n', obj)
