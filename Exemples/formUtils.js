@@ -28,7 +28,19 @@ function setInputRadioValue (name, value) {
     let radios = document.getElementsByName(name)
     let cnt = 0
     for (cnt = 0; cnt < radios.length; cnt = cnt + 1) {
-        if (radios[cnt].value === value) radios[cnt].checked = true
+        if (radios[cnt].value === value) {
+            try {
+                radios[cnt].parentNode.MaterialRadio.check()
+            } catch (e) {
+                radios[cnt].checked = true
+            }
+        } else {
+            try {
+                radios[cnt].parentNode.MaterialRadio.uncheck()
+            } catch (e) {
+                radios[cnt].checked = false
+            }
+        }
     }
 }
 
@@ -54,7 +66,21 @@ function setInputCheckboxValue (name, value, checked) {
     let checks = document.getElementsByName(name)
     let cnt = 0
     for (cnt = 0; cnt < checks.length; cnt = cnt + 1) {
-        if (checks[cnt].value === value) checks[cnt].checked = true
+        if (checks[cnt].value === value) {
+            if (checked) {
+                try {
+                    checks[cnt].parentNode.MaterialCheckbox.check()
+                } catch (e) {
+                    checks[cnt].checked = true
+                }
+            } else {
+                try {
+                    checks[cnt].parentNode.MaterialCheckbox.uncheck()
+                } catch (e) {
+                    checks[cnt].checked = false
+                }
+            }
+        }
     }
 }
 
