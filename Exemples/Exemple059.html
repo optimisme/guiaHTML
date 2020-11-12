@@ -46,7 +46,7 @@
         setInputSelectValue('personalviatjar', 'no')
         setInputSelectValue('personalcabell', 'castany')
         setInputTextareaValue('aficionsID', 'caminar')
-
+        mdlCleanUp()
     }
     function getDades () {
         let obj = {
@@ -67,6 +67,7 @@
 
         console.log('Dades del formulari:\n', obj)
     }
+
     </script>
     <body onload='setDades()'>
     <div class='outBox'>

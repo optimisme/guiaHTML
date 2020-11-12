@@ -32,7 +32,7 @@ function setInputRadioValue (name, value) {
     }
 }
 
-function getInputCheckboxValues (name, value) {
+function getInputCheckboxValues (name) {
     let checks = document.getElementsByName(name)
     let cnt = 0
     let rst = {}
@@ -73,5 +73,13 @@ function setInputSelectValue (id, value) {
     let cnt = 0
     for (cnt = 0; cnt < options.length; cnt = cnt + 1) {
         if (options[cnt].value === value) options[cnt].selected = true
+    }
+}
+
+function mdlCleanUp () {
+    let mdlInputs = document.querySelectorAll('.mdl-js-textfield')
+    let cnt = 0
+    for (cnt = 0; cnt < mdlInputs.length; cnt = cnt + 1) {
+        mdlInputs[cnt].MaterialTextfield.checkDirty()
     }
 }
