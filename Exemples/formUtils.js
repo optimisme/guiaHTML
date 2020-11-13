@@ -3,7 +3,11 @@ function getInputTextValue (id) {
 }
 
 function setInputTextValue (id, value) {
-    document.getElementById(id).value = value
+    try {
+        document.getElementById(id).parentElement.MaterialTextfield.change(value)
+    } catch (e) {
+        document.getElementById(id).value = value
+    }
 }
 
 function getInputTextareaValue (id) {
@@ -11,7 +15,11 @@ function getInputTextareaValue (id) {
 }
 
 function setInputTextareaValue (id, value) {
-    document.getElementById(id).value = value
+    try {
+        document.getElementById(id).parentElement.MaterialTextfield.change(value)
+    } catch (e) {
+        document.getElementById(id).value = value
+    }
 }
 
 function getInputRadioValue (name) {
