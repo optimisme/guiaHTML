@@ -1,0 +1,56 @@
+<html>
+    <head>
+        <meta charset='utf-8'/>
+        <title>Graelles i CSS</title>
+    </head>
+    <style>
+        .exterior {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 100%;
+            width: 100%;
+        }
+        .graella {
+            display: grid;
+            grid-template-columns: auto auto auto auto;
+            max-width: 400px;
+            max-height: 400px;
+        }
+        .graella > div {
+            align-items: center;
+            border: solid 1px grey;
+            border-radius: 5px;
+            display: flex;
+            margin: 4px;
+            padding: 8px;
+            justify-content: center;
+            min-width: 32px;
+            min-height: 32px;
+        }
+        #v4 {
+            grid-row-start: 2;
+            grid-row-end: 4;
+        }
+        #v7 {
+            grid-column-start: 3;
+            grid-column-end: 5;
+        }
+    </style>
+    <body>
+        <div class='exterior'>
+            <div class='graella'>
+                <div>1</div>
+                <div>2</div>
+                <div>3</div>
+                <div id='v4'>4</div>
+                <div>5</div>
+                <div>6</div>
+                <div id='v7'>7</div>
+                <div>8</div>
+                <div>9</div>
+                <div>10</div>
+            </div>
+        </div>
+    </body>
+</html>
