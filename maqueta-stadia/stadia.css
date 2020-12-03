@@ -195,8 +195,8 @@ a:visited {
 }
 @media only screen and (max-device-width: 899px) {
     #destacat1 > #text {
-        padding: 16px;
-        width: calc(100% - 32px);
+        padding: 0;
+        width: 100%;
     }
     #destacat1 > #text > h1 {
         text-align: center;
