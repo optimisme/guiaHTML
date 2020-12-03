@@ -55,11 +55,6 @@ a:visited {
     height: 64px;
 }
 @media only screen and (max-device-width: 899px) {
-    .menu {
-        height: 24px;
-    }
-}
-@media only screen and (max-device-width: 899px) {
     #logo {
         max-width: 40px;
         overflow: hidden;
@@ -134,7 +129,7 @@ a:visited {
 @media only screen and (max-device-width: 899px) {
     #hero {
         margin: 32px 0;
-        width: calc(100% - 40px);
+        width: calc(100% - 64px);
     }
 }
 #destacat0 {
