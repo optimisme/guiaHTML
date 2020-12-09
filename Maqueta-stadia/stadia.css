@@ -89,6 +89,7 @@ a:visited {
 }
 @media only screen and (max-device-width: 899px) {
     #requadreGris {
+        align-items: center;
         flex-direction: column;
     }
 }
