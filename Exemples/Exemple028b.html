@@ -1,0 +1,86 @@
+<html>
+    <head>
+        <meta charset='utf-8'/>
+        <title>Primera maqueta</title>
+        <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i,800,800i&display=swap" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+        <link href='./Exemple026.css' rel='stylesheet'>
+    </head>
+    <style>
+    body {
+        font-family: 'Open Sans', sans-serif;
+        margin: 10;
+        padding: 0;
+    }
+    .lineal {
+        transition: top 1s 
+    }
+    div {
+        height: 25px;
+        position: absolute;
+        top: 35px;
+        width: 90px;
+    }
+    #tr0 {
+        background-color: lightcoral;
+        left: 10px;
+        transition: top 1s linear;
+    }
+    #tr0:hover {
+        top: 100px;
+    }
+    #tr1 {
+        background-color: lightblue;
+        left: 110px;
+        transition: top 1s ease;
+    }
+    #tr2 {
+        background-color: lightgreen;
+        left: 210px;
+        transition: top 1s ease-in;
+    }
+    #tr3 {
+        background-color: lightgray;
+        left: 310px;
+        transition: top 1s ease-out;
+    }
+    #tr4 {
+        background-color: lightyellow;
+        left: 410px;
+        transition: top 1s ease-in-out;
+    }
+    #tr5 {
+        background-color: orange;
+        left: 510px;
+        transition: top 1s linear 1.5s;
+    }
+    #tr6 {
+        background-color: lightskyblue;
+        left: 610px;
+        opacity: 1;
+        transition: top 1s linear, opacity 1s linear;
+    }
+    </style>
+    <script>
+    function activa () {
+        document.getElementById('tr0').style.top = '200px'
+        document.getElementById('tr1').style.top = '200px'
+        document.getElementById('tr2').style.top = '200px'
+        document.getElementById('tr3').style.top = '200px'
+        document.getElementById('tr4').style.top = '200px'
+        document.getElementById('tr5').style.top = '200px'
+        document.getElementById('tr6').style.top = '200px'
+        document.getElementById('tr6').style.opacity = '0.1'
+    }
+    </script>
+    <body>
+        <button onclick='activa()'>Activa</button>
+        <div id='tr0'>linear</div>
+        <div id='tr1'>ease</div>
+        <div id='tr2'>ease-in</div>
+        <div id='tr3'>ease-out</div>
+        <div id='tr4'>ease-in-out</div>
+        <div id='tr5'>retard 1.5s</div>
+        <div id='tr6'>simultànies</div>
+    </body>
+</html>
